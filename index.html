@@ -1,498 +1,555 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kesanakurthi Surya Vamsi Krishna - Portfolio</title>
-    <!-- Tailwind CSS CDN -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Google Fonts - Inter -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <!-- Font Awesome for Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <style>
-        /* Custom CSS for smooth scrolling and font */
-        html {
-            scroll-behavior: smooth;
-            font-family: 'Inter', sans-serif;
-        }
-        body {
-            background-color: #015668; /* New --color-1: Dark Teal/Blue */
-            color: #e0e7eb; /* Off-white text */
-        }
-        .section-padding {
-            padding: 4rem 1rem; /* Default padding for sections */
-        }
-        @media (min-width: 768px) {
-            .section-padding {
-                padding: 6rem 2rem; /* Larger padding on medium screens */
-            }
-        }
-        @media (min-width: 1024px) {
-            .section-padding {
-                padding: 8rem 4rem; /* Even larger padding on large screens */
-            }
-        }
-        .text-gradient {
-            background: linear-gradient(to right, #FFD369, #FFF1CF); /* New --color-3 to --color-4 Gradient */
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-        .card {
-            background-color: #263F44; /* New --color-2: Darker Teal/Green for cards */
-            border-radius: 0.75rem; /* Rounded corners */
-            padding: 1.5rem;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
-        }
-        .card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 15px rgba(0, 0, 0, 0.2);
-        }
-        .btn-primary {
-            /* Using arbitrary values for precise color match */
-            @apply inline-block px-6 py-3 bg-[#FFD369] text-[#015668] font-semibold border-2 border-[#FFF1CF] rounded-full shadow-lg hover:bg-[#FFF1CF] hover:text-[#015668] transition duration-300 ease-in-out transform hover:scale-105;
-        }
-        .loading-spinner {
-            border: 4px solid rgba(255, 255, 255, 0.3);
-            border-top: 4px solid #FFF1CF; /* New --color-4 accent for spinner */
-            border-radius: 50%;
-            width: 24px;
-            height: 24px;
-            animation: spin 1s linear infinite;
-        }
-        @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-        }
-        /* New accent colors for icons, mapped to the new palette */
-        .text-blue-accent { color: #FFD369; } /* Mapped to --color-3 as primary accent */
-        .text-green-accent { color: #FFF1CF; } /* Mapped to --color-4 as secondary accent */
-        .text-yellow-accent { color: #FFD369; } /* Mapped to --color-3 */
-        .text-red-accent { color: #ef4444; } /* Red for heart (unchanged) */
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Kesanakurthi Surya Vamsi Krishna - Portfolio</title>
 
-        /* Custom Hexagon Image Styling (no longer used for image, but keeping definition if needed elsewhere) */
-        .hexagon-image {
-            clip-path: polygon(50% 0%, 90% 25%, 90% 75%, 50% 100%, 10% 75%, 10% 25%);
-            box-shadow: 0 0 20px rgba(255, 211, 105, 0.8), /* --color-3 glow */
-                        0 0 40px rgba(255, 241, 207, 0.6); /* --color-4 glow */
-            transition: all 0.3s ease-in-out;
-        }
+  <!-- Tailwind CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
 
-        .hexagon-image:hover {
-            transform: scale(1.05);
-            box-shadow: 0 0 30px rgba(255, 211, 105, 1),
-                        0 0 60px rgba(255, 241, 207, 0.8);
-        }
-    </style>
+  <!-- Inter font -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha512-Fo3rlrZj/k7ujTTXRN7p2GPvAaZb2f0n6K2k2Gm4vO8nQk84e0z4bqF6x2h4aQv4uOQ6h7qfXh8s6R9YjYfQw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <style>
+    /* Base */
+    :root{
+      --bg-1: #141830; /* dark */
+      --bg-2: #555770; /* medium */
+      --accent: #416330; /* green accent */
+      --card: #1f223b; /* deep card bg */
+      --muted: #cbd5e1; /* light text */
+      --muted-2: #94a3b8;
+    }
+    html { scroll-behavior: smooth; font-family: 'Inter', sans-serif; }
+    body { margin:0; background:var(--bg-1); color:var(--muted); -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale; }
+
+    .section-padding { padding: 4rem 1rem; }
+    @media(min-width:768px){ .section-padding{ padding:6rem 2rem; } }
+    @media(min-width:1024px){ .section-padding{ padding:8rem 4rem; } }
+
+    /* Gradient text */
+    .text-gradient {
+      background: linear-gradient(90deg, var(--bg-1), var(--bg-2), var(--accent));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    /* Card */
+    .card {
+      background: var(--card);
+      border-radius: 12px;
+      padding: 1.5rem;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.35);
+      transition: transform .28s ease, box-shadow .28s ease;
+    }
+    .card:hover { transform: translateY(-6px); box-shadow: 0 18px 30px rgba(0,0,0,0.45); }
+
+    /* Primary button (no @apply to avoid Tailwind build issues) */
+    .btn-primary {
+      display:inline-flex;
+      align-items:center;
+      gap:0.6rem;
+      padding: .65rem 1.25rem;
+      background: var(--accent);
+      color: #fff;
+      font-weight:600;
+      border-radius:999px;
+      border:2px solid var(--bg-2);
+      box-shadow: 0 8px 20px rgba(65,99,48,0.08);
+      transition: transform .18s ease, background .18s ease, color .18s ease;
+      text-decoration:none;
+    }
+    .btn-primary:hover{ transform: translateY(-3px) scale(1.02); background: var(--bg-2); color:#fff; }
+
+    /* Nav links */
+    .nav-link, .mobile-link {
+      color: #d1d5db;
+      padding: .5rem .75rem;
+      border-radius: .5rem;
+      text-decoration: none;
+      display:inline-block;
+      transition: background .18s ease, color .18s ease, transform .18s ease;
+    }
+    .nav-link:hover, .mobile-link:hover { background: rgba(255,255,255,0.02); color: var(--accent); transform: translateY(-2px); }
+
+    /* Helper accents */
+    .text-blue-accent { color: var(--accent); }
+    .text-green-accent { color: var(--bg-2); }
+    .text-yellow-accent { color: var(--bg-2); }
+    .text-red-accent { color: #ef4444; }
+
+    /* Loading spinner */
+    .loading-spinner {
+      border: 4px solid rgba(255,255,255,0.18);
+      border-top: 4px solid var(--accent);
+      border-radius: 50%;
+      width: 22px; height: 22px;
+      animation: spin 900ms linear infinite;
+    }
+    @keyframes spin { from { transform: rotate(0); } to { transform: rotate(360deg); } }
+
+    /* Hero card */
+    .hero-card { background: rgba(0,0,0,0.6); border-radius: 18px; padding: 2.25rem; }
+
+    /* Hexagon image (as original had) */
+    .hexagon-image {
+      clip-path: polygon(50% 0, 90% 25%, 90% 75%, 50% 100%, 10% 75%, 10% 25%);
+      transition: transform .25s ease, box-shadow .25s ease;
+      box-shadow: 0 0 20px rgba(65,99,48,0.6), 0 0 40px rgba(85,87,112,0.4);
+    }
+    .hexagon-image:hover{ transform:scale(1.03); box-shadow: 0 0 30px rgba(65,99,48,0.95), 0 0 60px rgba(85,87,112,0.7); }
+
+    /* small screens tweaks */
+    @media (max-width:420px){
+      .hero-card { padding:1.25rem; }
+      h1 { font-size:1.7rem; }
+    }
+
+    /* focus outlines for accessibility */
+    a:focus, button:focus, textarea:focus, input:focus { outline: 3px solid rgba(81, 173, 123, 0.12); outline-offset: 3px; }
+  </style>
 </head>
+
 <body class="antialiased">
 
-    <!-- Navigation Bar -->
-    <header class="bg-[#015668] bg-opacity-90 sticky top-0 z-50 shadow-lg">
-        <nav class="container mx-auto px-4 py-4 flex justify-between items-center">
-            <a href="#home" class="text-2xl font-bold text-white hover:text-green-accent transition duration-300 ease-in-out">SURYA KESANAKURTHI</a>
-            <div class="hidden md:flex space-x-2">
-                <a href="#about" class="text-gray-300 hover:bg-[#263F44] hover:text-[#FFD369] px-3 py-2 rounded-md transition duration-300 ease-in-out">About</a>
-                <a href="#skills" class="text-gray-300 hover:bg-[#263F44] hover:text-[#FFD369] px-3 py-2 rounded-md transition duration-300 ease-in-out">Skills</a>
-                <a href="#education" class="text-gray-300 hover:bg-[#263F44] hover:text-[#FFD369] px-3 py-2 rounded-md transition duration-300 ease-in-out">Education</a>
-                <a href="#projects" class="text-gray-300 hover:bg-[#263F44] hover:text-[#FFD369] px-3 py-2 rounded-md transition duration-300 ease-in-out">Projects</a>
-                <a href="#certificates" class="text-gray-300 hover:bg-[#263F44] hover:text-[#FFD369] px-3 py-2 rounded-md transition duration-300 ease-in-out">Certificates</a>
-                <a href="#ai-assistant" class="text-gray-300 hover:bg-[#263F44] hover:text-[#FFD369] px-3 py-2 rounded-md transition duration-300 ease-in-out">AI Assistant</a>
-                <a href="#contact" class="text-gray-300 hover:bg-[#263F44] hover:text-[#FFD369] px-3 py-2 rounded-md transition duration-300 ease-in-out">Contact</a>
-            </div>
-            <!-- Mobile Menu Button -->
-            <button id="mobile-menu-button" class="md:hidden text-gray-300 hover:text-[#FFD369] focus:outline-none transition duration-300 ease-in-out">
-                <i class="fas fa-bars text-2xl"></i>
-            </button>
-        </nav>
-        <!-- Mobile Menu Overlay -->
-        <div id="mobile-menu" class="hidden md:hidden fixed inset-0 bg-[#015668] bg-opacity-95 z-40 flex flex-col items-center justify-center space-y-8 text-2xl">
-            <button id="close-mobile-menu" class="absolute top-4 right-4 text-gray-300 hover:text-[#FFD369] focus:outline-none transition duration-300 ease-in-out">
-                <i class="fas fa-times text-3xl"></i>
-            </button>
-            <a href="#about" class="text-gray-300 hover:bg-[#263F44] hover:text-[#FFD369] px-3 py-2 rounded-md transition duration-300 ease-in-out" onclick="toggleMobileMenu()">About</a>
-            <a href="#skills" class="text-gray-300 hover:bg-[#263F44] hover:text-[#FFD369] px-3 py-2 rounded-md transition duration-300 ease-in-out" onclick="toggleMobileMenu()">Skills</a>
-            <a href="#education" class="text-gray-300 hover:bg-[#263F44] hover:text-[#FFD369] px-3 py-2 rounded-md transition duration-300 ease-in-out" onclick="toggleMobileMenu()">Education</a>
-            <a href="#projects" class="text-gray-300 hover:bg-[#263F44] hover:text-[#FFD369] px-3 py-2 rounded-md transition duration-300 ease-in-out" onclick="toggleMobileMenu()">Projects</a>
-            <a href="#certificates" class="text-gray-300 hover:bg-[#263F44] hover:text-[#FFD369] px-3 py-2 rounded-md transition duration-300 ease-in-out" onclick="toggleMobileMenu()">Certificates</a>
-            <a href="#ai-assistant" class="text-gray-300 hover:bg-[#263F44] hover:text-[#FFD369] px-3 py-2 rounded-md transition duration-300 ease-in-out" onclick="toggleMobileMenu()">AI Assistant</a>
-            <a href="#contact" class="text-gray-300 hover:bg-[#263F44] hover:text-[#FFD369] px-3 py-2 rounded-md transition duration-300 ease-in-out" onclick="toggleMobileMenu()">Contact</a>
+  <!-- NAV -->
+  <header class="bg-[color:var(--bg-1)] sticky top-0 z-50 shadow-lg">
+    <nav class="container mx-auto px-4 py-4 flex justify-between items-center">
+      <a href="#home" class="text-2xl font-bold text-white hover:text-green-accent">SURYA KESANAKURTHI</a>
+
+      <div class="hidden md:flex space-x-2">
+        <a href="#about" class="nav-link">About</a>
+        <a href="#skills" class="nav-link">Skills</a>
+        <a href="#education" class="nav-link">Education</a>
+        <a href="#projects" class="nav-link">Projects</a>
+        <a href="#certificates" class="nav-link">Certificates</a>
+        <a href="#ai-assistant" class="nav-link">AI Assistant</a>
+        <a href="#contact" class="nav-link">Contact</a>
+      </div>
+
+      <button id="mobile-menu-button" class="md:hidden text-gray-300 hover:text-[#416330] focus:outline-none" aria-label="Open menu">
+        <i class="fas fa-bars text-2xl"></i>
+      </button>
+    </nav>
+  </header>
+
+  <!-- MOBILE MENU -->
+  <div id="mobile-menu" class="hidden md:hidden fixed inset-0 bg-[color:var(--bg-1)] bg-opacity-95 z-40 flex flex-col items-center justify-center space-y-8 text-2xl">
+    <button id="close-mobile-menu" class="absolute top-4 right-4 text-gray-300 hover:text-[#416330]" aria-label="Close menu">
+      <i class="fas fa-times text-3xl"></i>
+    </button>
+    <a href="#about" class="mobile-link">About</a>
+    <a href="#skills" class="mobile-link">Skills</a>
+    <a href="#education" class="mobile-link">Education</a>
+    <a href="#projects" class="mobile-link">Projects</a>
+    <a href="#certificates" class="mobile-link">Certificates</a>
+    <a href="#ai-assistant" class="mobile-link">AI Assistant</a>
+    <a href="#contact" class="mobile-link">Contact</a>
+  </div>
+
+  <main>
+
+    <!-- HERO -->
+    <section id="home" class="section-padding min-h-screen flex items-center justify-center text-center bg-cover bg-center bg-no-repeat relative" style="background-image:url('https://via.placeholder.com/1920x1080');">
+      <div class="absolute inset-0 bg-black opacity-60 z-10"></div>
+
+      <div class="relative z-20 flex flex-col items-center justify-center w-full max-w-6xl mx-auto p-6 md:p-10 lg:p-16">
+        <div class="hero-card text-center">
+          <h1 class="text-4xl md:text-6xl font-extrabold text-white leading-tight mb-4">
+            Hi, I'm <span class="text-gradient">Kesanakurthi Surya Vamsi Krishna</span>
+          </h1>
+          <p class="text-lg md:text-xl text-gray-300 mb-8">Aspiring Web Developer & AI Enthusiast</p>
+          <a href="#projects" class="btn-primary">View My Work <i class="fas fa-arrow-right ml-2"></i></a>
         </div>
-    </header>
+      </div>
+    </section>
 
-    <main>
-        <!-- Hero Section -->
-        <section id="home" class="section-padding min-h-screen flex items-center justify-center text-center bg-cover bg-center bg-no-repeat relative" style="background-image: url('http://googleusercontent.com/file_content/1');">
-            <!-- Overlay to make text readable -->
-            <div class="absolute inset-0 bg-black opacity-60 z-10"></div>
+    <!-- ABOUT -->
+    <section id="about" class="section-padding bg-[color:var(--card)] text-center">
+      <div class="container mx-auto max-w-3xl">
+        <h2 class="text-3xl md:text-4xl font-bold text-gradient mb-6">About Me</h2>
+        <p class="text-lg text-gray-300 leading-relaxed mb-6">
+          I am a dedicated Bachelor of Computer Applications (B.C.A) student with a profound passion for web development. My journey in technology is driven by a curiosity for creating intuitive and dynamic digital experiences.
+        </p>
 
-            <!-- Content Container (now only for text) -->
-            <div class="relative z-20 flex flex-col items-center justify-center w-full max-w-6xl mx-auto p-6 md:p-10 lg:p-16">
-                <!-- Text Content -->
-                <div class="w-full flex flex-col justify-center items-center text-center">
-                    <div class="bg-black bg-opacity-70 p-10 md:p-16 rounded-xl shadow-2xl">
-                        <h1 class="text-5xl md:text-7xl font-extrabold text-white leading-tight mb-4">
-                            Hi, I'm <span class="text-gradient">Kesanakurthi Surya Vamsi Krishna</span>
-                        </h1>
-                        <p class="text-xl md:text-2xl text-gray-300 mb-8">
-                            Aspiring Web Developer & AI Enthusiast
-                        </p>
-                        <a href="#projects" class="btn-primary">View My Work <i class="fas fa-arrow-right ml-2"></i></a>
-                    </div>
-                </div>
-            </div>
-        </section>
+        <p class="text-lg text-gray-300 leading-relaxed">
+          I'm a beginner in prompt engineering, efficiently leveraging AI tools like ChatGPT, Gemini, and Claude for learning, coding, and content creation. My soft skills, including being a <span class="font-semibold text-white">Quick Learner</span> and possessing <span class="font-semibold text-white">Good Communication</span>, enable me to adapt swiftly to new challenges and collaborate effectively in team environments. I am constantly seeking opportunities to expand my knowledge and apply innovative solutions.
+        </p>
+      </div>
+    </section>
 
-        <!-- About Me Section -->
-        <section id="about" class="section-padding bg-[#263F44] text-center">
-            <div class="container mx-auto max-w-3xl">
-                <h2 class="text-4xl font-bold text-gradient mb-8">About Me</h2>
-                <p class="text-lg text-gray-300 leading-relaxed mb-6">
-                    I am a dedicated Bachelor of Computer Applications (B.C.A) student with a profound passion for web development. My journey in technology is driven by a curiosity for creating intuitive and dynamic digital experiences.
-                </p>
-                <p class="text-lg text-gray-300 leading-relaxed">
-                    I'm a beginner in prompt engineering, efficiently leveraging AI tools like ChatGPT, Gemini, and Claude for learning, coding, and content creation. My soft skills, including being a <span class="font-semibold text-white">Quick Learner</span> and possessing <span class="font-semibold text-white">Good Communication</span>, enable me to adapt swiftly to new challenges and collaborate effectively in team environments. I am constantly seeking opportunities to expand my knowledge and apply innovative solutions.
-                </p>
-            </div>
-        </section>
+    <!-- SKILLS -->
+    <section id="skills" class="section-padding bg-[color:var(--bg-1)]">
+      <div class="container mx-auto">
+        <h2 class="text-3xl md:text-4xl font-bold text-gradient text-center mb-10">My Skills</h2>
 
-        <!-- Skills Section -->
-        <section id="skills" class="section-padding bg-[#015668]">
-            <div class="container mx-auto">
-                <h2 class="text-4xl font-bold text-gradient text-center mb-12">My Skills</h2>
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                    <!-- Technical Skills -->
-                    <div class="card">
-                        <h3 class="text-2xl font-semibold text-white mb-6 flex items-center"><i class="fas fa-code mr-3 text-blue-accent"></i> Technical Skills</h3>
-                        <ul class="space-y-4 text-lg text-gray-300">
-                            <li class="flex items-center"><i class="fab fa-html5 mr-3 text-orange-500"></i> HTML5</li>
-                            <li class="flex items-center"><i class="fab fa-css3-alt mr-3 text-blue-500"></i> CSS</li>
-                            <li class="flex items-center"><i class="fab fa-python mr-3 text-yellow-accent"></i> Python (Beginner)</li>
-                            <li class="flex items-center"><i class="fas fa-globe mr-3 text-green-accent"></i> Web Development (General)</li>
-                            <li class="flex items-center"><i class="fas fa-terminal mr-3 text-gray-400"></i> Vibe coding with Cursor, Replit, GitHub Copilot</li>
-                            <li class="flex items-center"><i class="fas fa-robot mr-3 text-purple-400"></i> Beginner in Prompt Engineering (ChatGPT, Gemini, Claude)</li>
-                        </ul>
-                    </div>
-                    <!-- Soft Skills -->
-                    <div class="card">
-                        <h3 class="text-2xl font-semibold text-white mb-6 flex items-center"><i class="fas fa-users mr-3 text-green-accent"></i> Soft Skills</h3>
-                        <ul class="space-y-4 text-lg text-gray-300">
-                            <li class="flex items-center"><i class="fas fa-brain mr-3 text-cyan-400"></i> Quick Learner</li>
-                            <li class="flex items-center"><i class="fas fa-comments mr-3 text-pink-400"></i> Good Communication</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </section>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div class="card">
+            <h3 class="text-2xl font-semibold text-white mb-5 flex items-center"><i class="fas fa-code mr-3 text-blue-accent"></i> Technical Skills</h3>
+            <ul class="space-y-4 text-lg text-gray-300">
+              <li class="flex items-center"><i class="fab fa-html5 mr-3 text-orange-500"></i> HTML5</li>
+              <li class="flex items-center"><i class="fab fa-css3-alt mr-3 text-blue-500"></i> CSS</li>
+              <li class="flex items-center"><i class="fab fa-python mr-3 text-yellow-400"></i> Python (Beginner)</li>
+              <li class="flex items-center"><i class="fas fa-globe mr-3 text-green-accent"></i> Web Development (General)</li>
+              <li class="flex items-center"><i class="fas fa-terminal mr-3 text-gray-400"></i> Vibe coding with Cursor, Replit, GitHub Copilot</li>
+              <li class="flex items-center"><i class="fas fa-robot mr-3 text-purple-400"></i> Beginner in Prompt Engineering (ChatGPT, Gemini, Claude)</li>
+            </ul>
+          </div>
 
-        <!-- Education Section -->
-        <section id="education" class="section-padding bg-[#263F44] text-center">
-            <div class="container mx-auto max-w-4xl">
-                <h2 class="text-4xl font-bold text-gradient mb-12">Education</h2>
-                <div class="relative border-l-4 border-blue-accent pl-8">
-                    <!-- BCA -->
-                    <div class="mb-8 relative card">
-                        <div class="absolute -left-12 top-0 mt-2 w-6 h-6 bg-blue-accent rounded-full flex items-center justify-center text-white text-sm font-bold">
-                            <i class="fas fa-graduation-cap"></i>
-                        </div>
-                        <h3 class="text-2xl font-semibold text-white mb-2">Bachelor of Computer Applications (B.C.A)</h3>
-                        <p class="text-lg text-gray-300">Adikavi Nannaya University</p>
-                        <p class="text-sm text-gray-400 mt-1">Pursuing</p>
-                    </div>
-                    <!-- Diploma -->
-                    <div class="mb-8 relative card">
-                        <div class="absolute -left-12 top-0 mt-2 w-6 h-6 bg-blue-accent rounded-full flex items-center justify-center text-white text-sm font-bold">
-                            <i class="fas fa-seedling"></i>
-                        </div>
-                        <h3 class="text-2xl font-semibold text-white mb-2">Diploma in Horticulture</h3>
-                        <p class="text-lg text-gray-300">Dr YSRHU</p>
-                        <p class="text-sm text-gray-400 mt-1">Completed</p>
-                    </div>
-                    <!-- SSC -->
-                    <div class="mb-8 relative card">
-                        <div class="absolute -left-12 top-0 mt-2 w-6 h-6 bg-blue-accent rounded-full flex items-center justify-center text-white text-sm font-bold">
-                            <i class="fas fa-school"></i>
-                        </div>
-                        <h3 class="text-2xl font-semibold text-white mb-2">SSC (Class X)</h3>
-                        <p class="text-lg text-gray-300">Bhashyam school, Ramachandrapuram</p>
-                        <p class="text-sm text-gray-400 mt-1">Completed</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Projects Section -->
-        <section id="projects" class="section-padding bg-[#015668]">
-            <div class="container mx-auto">
-                <h2 class="text-4xl font-bold text-gradient text-center mb-12">My Projects</h2>
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                    <!-- Project 1: SolarSense Hackathon -->
-                    <div class="card flex flex-col justify-between">
-                        <div>
-                            <h3 class="text-2xl font-semibold text-white mb-3">SolarSense Hackathon - Gen1 Software Solutions</h3>
-                            <p class="text-gray-300 mb-4">
-                                Participated in the Solar System Hackathon, focusing on innovative energy-based web solutions. This experience honed my problem-solving skills and ability to work under pressure.
-                            </p>
-                        </div>
-                        <div class="mt-4">
-                            <!-- Placeholder for project link if available -->
-                            <a href="https://github.com/SURYA88977" target="_blank" class="text-blue-accent hover:text-green-accent font-medium transition duration-300 ease-in-out flex items-center">
-                                View on GitHub <i class="fab fa-github ml-2"></i>
-                            </a>
-                        </div>
-                    </div>
-                    <!-- Project 2: Restaurant Ordering Systems -->
-                    <div class="card flex flex-col justify-between">
-                        <div>
-                            <h3 class="text-2xl font-semibold text-white mb-3">Restaurant Ordering Systems</h3>
-                            <p class="text-gray-300 mb-4">
-                                Developed a basic web-based restaurant ordering system. This project allowed me to apply fundamental HTML and CSS skills to create a user-friendly interface for browsing menus and placing orders.
-                            </p>
-                        </div>
-                        <div class="mt-4">
-                            <!-- Placeholder for project link if available -->
-                            <a href="https://github.com/SURYA88977" target="_blank" class="text-blue-accent hover:text-green-accent font-medium transition duration-300 ease-in-out flex items-center">
-                                View on GitHub <i class="fab fa-github ml-2"></i>
-                            </a>
-                        </div>
-                    </div>
-                    <!-- Add more project cards as needed -->
-                </div>
-            </div>
-        </section>
-
-        <!-- Certificates Section -->
-        <section id="certificates" class="section-padding bg-[#263F44]">
-            <div class="container mx-auto max-w-4xl">
-                <h2 class="text-4xl font-bold text-gradient text-center mb-12">Certificates & Achievements</h2>
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                    <!-- Certificate 1: Web Development Internship -->
-                    <div class="card flex items-start">
-                        <i class="fas fa-award text-4xl text-yellow-accent mr-4 mt-1"></i>
-                        <div>
-                            <h3 class="text-xl font-semibold text-white mb-1">Web Development Internship Certificate</h3>
-                            <p class="text-gray-300">Amaravathi Software Innovations</p>
-                            <p class="text-sm text-gray-400">June 2025</p>
-                        </div>
-                    </div>
-                    <!-- Certificate 2: Python Course -->
-                    <a href="https://drive.google.com/file/d/1S4Y512Sp47uvpYbc8ozTWvvYXktc8hYN/view?usp=drivesdk" target="_blank" class="card flex items-start">
-                        <i class="fas fa-certificate text-4xl text-blue-accent mr-4 mt-1"></i>
-                        <div>
-                            <h3 class="text-xl font-semibold text-white mb-1">Python Course for Beginners</h3>
-                            <p class="text-gray-300">Scaler Topics</p>
-                            <p class="text-sm text-gray-400">Completed</p>
-                        </div>
-                    </a>
-                    <!-- Achievement: Hackathon Participation -->
-                    <div class="card md:col-span-2 flex items-start">
-                        <i class="fas fa-trophy text-4xl text-green-accent mr-4 mt-1"></i>
-                        <div>
-                            <h3 class="text-xl font-semibold text-white mb-1">Hackathon Participation</h3>
-                            <p class="text-gray-300">Participated in SolarSense Hackathon - Gen1 Software Solutions, demonstrating collaborative problem-solving and innovative thinking.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Portfolio AI Assistant Section -->
-        <section id="ai-assistant" class="section-padding bg-[#015668]">
-            <div class="container mx-auto max-w-3xl">
-                <h2 class="text-4xl font-bold text-gradient text-center mb-8">Portfolio AI Assistant ✨</h2>
-                <p class="text-lg text-gray-300 text-center mb-8">
-                    Ask me anything about Surya's skills, projects, or education!
-                </p>
-                <div class="card p-6">
-                    <textarea id="ai-question-input" class="w-full p-3 rounded-lg bg-[#263F44] text-gray-200 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-accent mb-4" rows="4" placeholder="e.g., What are Surya's soft skills? Tell me more about the SolarSense Hackathon."></textarea>
-                    <button id="ask-ai-button" class="btn-primary w-full flex items-center justify-center">
-                        Ask AI <i class="fas fa-magic ml-2"></i>
-                        <div id="loading-spinner" class="loading-spinner ml-3 hidden"></div>
-                    </button>
-                    <div id="ai-response-output" class="mt-6 p-4 bg-[#263F44] rounded-lg text-gray-200 min-h-[100px] overflow-auto">
-                        Your AI-powered answer will appear here.
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Contact Section -->
-        <section id="contact" class="section-padding bg-[#263F44] text-center">
-            <div class="container mx-auto max-w-2xl">
-                <h2 class="text-4xl font-bold text-gradient mb-8">Get In Touch</h2>
-                <p class="text-lg text-gray-300 mb-8">
-                    I'm always open to new opportunities and collaborations. Feel free to reach out!
-                </p>
-                <div class="flex flex-col md:flex-row justify-center items-center space-y-6 md:space-y-0 md:space-x-8">
-                    <div class="flex items-center text-lg text-gray-300">
-                        <i class="fas fa-envelope text-blue-accent mr-3"></i>
-                        <a href="mailto:suryavamsikrishna2005@gmail.com" class="hover:text-white transition duration-300">suryavamsikrishna2005@gmail.com</a>
-                    </div>
-                    <div class="flex items-center text-lg text-gray-300">
-                        <i class="fas fa-phone text-blue-accent mr-3"></i>
-                        <a href="tel:+918074033030" class="hover:text-white transition duration-300">+91 8074033030</a>
-                    </div>
-                </div>
-                <div class="mt-10">
-                    <h3 class="text-2xl font-semibold text-white mb-4">Connect with me:</h3>
-                    <div class="flex justify-center space-x-6 text-4xl">
-                        <a href="https://github.com/SURYA88977" target="_blank" class="text-gray-300 hover:text-blue-accent transition duration-300 transform hover:scale-110">
-                            <i class="fab fa-github"></i>
-                        </a>
-                        <a href="https://www.linkedin.com/in/surya-kesanakurthi-b840b8354?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_ap" target="_blank" class="text-gray-300 hover:text-blue-accent transition duration-300 transform hover:scale-110">
-                            <i class="fab fa-linkedin"></i>
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </section>
-    </main>
-
-    <!-- Footer -->
-    <footer class="bg-[#015668] py-8 text-center text-gray-400 text-sm">
-        <div class="container mx-auto px-4">
-            <p>&copy; 2025 Kesanakurthi Surya Vamsi Krishna. All rights reserved.</p>
-            <p class="mt-2">Designed with <i class="fas fa-heart text-red-accent"></i> using HTML, Tailwind CSS, and JavaScript.</p>
+          <div class="card">
+            <h3 class="text-2xl font-semibold text-white mb-5 flex items-center"><i class="fas fa-users mr-3 text-green-accent"></i> Soft Skills</h3>
+            <ul class="space-y-4 text-lg text-gray-300">
+              <li class="flex items-center"><i class="fas fa-brain mr-3 text-cyan-400"></i> Quick Learner</li>
+              <li class="flex items-center"><i class="fas fa-comments mr-3 text-pink-400"></i> Good Communication</li>
+            </ul>
+          </div>
         </div>
-    </footer>
+      </div>
+    </section>
 
-    <script>
-        // JavaScript for smooth scrolling
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
-                });
-            });
-        });
+    <!-- EDUCATION -->
+    <section id="education" class="section-padding bg-[color:var(--card)] text-center">
+      <div class="container mx-auto max-w-4xl">
+        <h2 class="text-3xl md:text-4xl font-bold text-gradient mb-10">Education</h2>
 
-        // JavaScript for mobile menu toggle
-        const mobileMenuButton = document.getElementById('mobile-menu-button');
-        const closeMobileMenuButton = document.getElementById('close-mobile-menu');
-        const mobileMenu = document.getElementById('mobile-menu');
+        <div class="relative pl-8">
+          <div class="mb-8 relative card">
+            <div class="absolute -left-12 top-0 mt-2 w-10 h-10 bg-[color:var(--accent)] rounded-full flex items-center justify-center text-white text-sm font-bold"><i class="fas fa-graduation-cap"></i></div>
+            <h3 class="text-2xl font-semibold text-white mb-2">Bachelor of Computer Applications (B.C.A)</h3>
+            <p class="text-lg text-gray-300">Adikavi Nannaya University</p>
+            <p class="text-sm text-gray-400 mt-1">Pursuing</p>
+          </div>
 
-        function toggleMobileMenu() {
-            mobileMenu.classList.toggle('hidden');
-            mobileMenu.classList.toggle('flex');
+          <div class="mb-8 relative card">
+            <div class="absolute -left-12 top-0 mt-2 w-10 h-10 bg-[color:var(--accent)] rounded-full flex items-center justify-center text-white text-sm font-bold"><i class="fas fa-seedling"></i></div>
+            <h3 class="text-2xl font-semibold text-white mb-2">Diploma in Horticulture</h3>
+            <p class="text-lg text-gray-300">Dr YSRHU</p>
+            <p class="text-sm text-gray-400 mt-1">Completed</p>
+          </div>
+
+          <div class="mb-8 relative card">
+            <div class="absolute -left-12 top-0 mt-2 w-10 h-10 bg-[color:var(--accent)] rounded-full flex items-center justify-center text-white text-sm font-bold"><i class="fas fa-school"></i></div>
+            <h3 class="text-2xl font-semibold text-white mb-2">SSC (Class X)</h3>
+            <p class="text-lg text-gray-300">Bhashyam school, Ramachandrapuram</p>
+            <p class="text-sm text-gray-400 mt-1">Completed</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROJECTS -->
+    <section id="projects" class="section-padding bg-[color:var(--bg-1)]">
+      <div class="container mx-auto">
+        <h2 class="text-3xl md:text-4xl font-bold text-gradient text-center mb-10">My Projects</h2>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div class="card flex flex-col justify-between">
+            <div>
+              <h3 class="text-2xl font-semibold text-white mb-3">SolarSense Hackathon - Gen1 Software Solutions</h3>
+              <p class="text-gray-300 mb-4">Participated in the Solar System Hackathon, focusing on innovative energy-based web solutions. This experience honed my problem-solving skills and ability to work under pressure.</p>
+            </div>
+            <div class="mt-4">
+              <a href="https://github.com/SURYA88977" target="_blank" rel="noopener" class="text-blue-accent hover:text-green-accent font-medium flex items-center">
+                View on GitHub <i class="fab fa-github ml-2"></i>
+              </a>
+            </div>
+          </div>
+
+          <div class="card flex flex-col justify-between">
+            <div>
+              <h3 class="text-2xl font-semibold text-white mb-3">Restaurant Ordering Systems</h3>
+              <p class="text-gray-300 mb-4">Developed a basic web-based restaurant ordering system. This project allowed me to apply fundamental HTML and CSS skills to create a user-friendly interface for browsing menus and placing orders.</p>
+            </div>
+            <div class="mt-4">
+              <a href="https://github.com/SURYA88977" target="_blank" rel="noopener" class="text-blue-accent hover:text-green-accent font-medium flex items-center">
+                View on GitHub <i class="fab fa-github ml-2"></i>
+              </a>
+            </div>
+          </div>
+
+          <!-- add more project cards if needed -->
+        </div>
+      </div>
+    </section>
+
+    <!-- CERTIFICATES -->
+    <section id="certificates" class="section-padding bg-[color:var(--card)]">
+      <div class="container mx-auto max-w-4xl">
+        <h2 class="text-3xl md:text-4xl font-bold text-gradient text-center mb-10">Certificates & Achievements</h2>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div class="card flex items-start">
+            <i class="fas fa-award text-4xl text-yellow-400 mr-4 mt-1"></i>
+            <div>
+              <h3 class="text-xl font-semibold text-white mb-1">Web Development Internship Certificate</h3>
+              <p class="text-gray-300">Amaravathi Software Innovations</p>
+              <p class="text-sm text-gray-400">June 2025</p>
+            </div>
+          </div>
+
+          <a href="https://drive.google.com/file/d/1S4Y512Sp47uvpYbc8ozTWvvYXktc8hYN/view?usp=drivesdk" target="_blank" rel="noopener" class="card flex items-start">
+            <i class="fas fa-certificate text-4xl text-blue-accent mr-4 mt-1"></i>
+            <div>
+              <h3 class="text-xl font-semibold text-white mb-1">Python Course for Beginners</h3>
+              <p class="text-gray-300">Scaler Topics</p>
+              <p class="text-sm text-gray-400">Completed</p>
+            </div>
+          </a>
+
+          <div class="card md:col-span-2 flex items-start">
+            <i class="fas fa-trophy text-4xl text-green-accent mr-4 mt-1"></i>
+            <div>
+              <h3 class="text-xl font-semibold text-white mb-1">Hackathon Participation</h3>
+              <p class="text-gray-300">Participated in SolarSense Hackathon - Gen1 Software Solutions, demonstrating collaborative problem-solving and innovative thinking.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- AI ASSISTANT -->
+    <section id="ai-assistant" class="section-padding bg-[color:var(--bg-1)]">
+      <div class="container mx-auto max-w-3xl">
+        <h2 class="text-3xl md:text-4xl font-bold text-gradient text-center mb-6">Portfolio AI Assistant ✨</h2>
+        <p class="text-lg text-gray-300 text-center mb-6">Ask me anything about Surya's skills, projects, or education!</p>
+
+        <div class="card p-6">
+          <textarea id="ai-question-input" class="w-full p-3 rounded-lg bg-[color:var(--card)] text-gray-200 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[color:var(--accent)] mb-4" rows="4" placeholder="e.g., What are Surya's soft skills? Tell me more about the SolarSense Hackathon."></textarea>
+
+          <button id="ask-ai-button" class="btn-primary w-full flex items-center justify-center mb-4">
+            <span>Ask AI</span>
+            <i class="fas fa-magic ml-2"></i>
+            <div id="loading-spinner" class="loading-spinner ml-3 hidden" style="margin-left: .75rem;"></div>
+          </button>
+
+          <div id="ai-response-output" class="mt-4 p-4 bg-[color:var(--card)] rounded-lg text-gray-200 min-h-[120px] overflow-auto">
+            Your AI-powered answer will appear here.
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact" class="section-padding bg-[color:var(--card)] text-center">
+      <div class="container mx-auto max-w-2xl">
+        <h2 class="text-3xl md:text-4xl font-bold text-gradient mb-6">Get In Touch</h2>
+        <p class="text-lg text-gray-300 mb-6">I'm always open to new opportunities and collaborations. Feel free to reach out!</p>
+
+        <div class="flex flex-col md:flex-row justify-center items-center space-y-6 md:space-y-0 md:space-x-8">
+          <div class="flex items-center text-lg text-gray-300">
+            <i class="fas fa-envelope text-blue-accent mr-3"></i>
+            <a href="mailto:suryavamsikrishna2005@gmail.com" class="hover:text-white transition">suryavamsikrishna2005@gmail.com</a>
+          </div>
+          <div class="flex items-center text-lg text-gray-300">
+            <i class="fas fa-phone text-blue-accent mr-3"></i>
+            <a href="tel:+918074033030" class="hover:text-white transition">+91 8074033030</a>
+          </div>
+        </div>
+
+        <div class="mt-8">
+          <h3 class="text-2xl font-semibold text-white mb-4">Connect with me:</h3>
+          <div class="flex justify-center space-x-6 text-3xl">
+            <a href="https://github.com/SURYA88977" target="_blank" rel="noopener" class="text-gray-300 hover:text-blue-accent transition transform hover:scale-110">
+              <i class="fab fa-github"></i>
+            </a>
+            <a href="https://www.linkedin.com/in/surya-kesanakurthi-b840b8354" target="_blank" rel="noopener" class="text-gray-300 hover:text-blue-accent transition transform hover:scale-110">
+              <i class="fab fa-linkedin"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="bg-[color:var(--bg-1)] py-8 text-center text-gray-400 text-sm">
+    <div class="container mx-auto px-4">
+      <p>&copy; 2025 Kesanakurthi Surya Vamsi Krishna. All rights reserved.</p>
+      <p class="mt-2">Designed with <i class="fas fa-heart text-red-accent"></i> using HTML, Tailwind CSS, and JavaScript.</p>
+    </div>
+  </footer>
+
+  <!-- SCRIPTS -->
+  <script>
+    // Smooth scrolling for same-page anchors
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        // only handle anchors that actually refer to elements on page
+        const target = document.querySelector(this.getAttribute('href'));
+        if(target){
+          e.preventDefault();
+          target.scrollIntoView({ behavior: 'smooth' });
         }
+      });
+    });
 
-        mobileMenuButton.addEventListener('click', toggleMobileMenu);
-        closeMobileMenuButton.addEventListener('click', toggleMobileMenu);
+    // Mobile menu toggle
+    const mobileMenuButton = document.getElementById('mobile-menu-button');
+    const closeMobileMenuButton = document.getElementById('close-mobile-menu');
+    const mobileMenu = document.getElementById('mobile-menu');
 
-        // Close mobile menu when a link is clicked inside it
-        mobileMenu.querySelectorAll('a').forEach(link => {
-            link.addEventListener('click', toggleMobileMenu);
-        });
+    function toggleMobileMenu(){
+      mobileMenu.classList.toggle('hidden');
+      mobileMenu.classList.toggle('flex');
+    }
 
-        // --- Gemini API Integration ---
-        const askAiButton = document.getElementById('ask-ai-button');
-        const aiQuestionInput = document.getElementById('ai-question-input');
-        const aiResponseOutput = document.getElementById('ai-response-output');
-        const loadingSpinner = document.getElementById('loading-spinner');
+    if(mobileMenuButton) mobileMenuButton.addEventListener('click', toggleMobileMenu);
+    if(closeMobileMenuButton) closeMobileMenuButton.addEventListener('click', toggleMobileMenu);
+    document.querySelectorAll('.mobile-link').forEach(link => link.addEventListener('click', toggleMobileMenu));
 
-        // Contextual information for the AI to answer questions about the portfolio
-        const portfolioContext = `
-            You are an AI assistant for Kesanakurthi Surya Vamsi Krishna's portfolio website. Your goal is to answer questions about his skills, education, and projects based *only* on the following information. If a question cannot be answered from this information, state that you don't have enough information. Do not make up information.
+    // --- AI Assistant (Gemini) integration ---
+    // NOTE: This uses the same approach as your original file. You MUST set apiKey to
+    // a valid Google Generative Language API key in order for remote requests to work.
+    // If you don't have a key or want a local demo, I'll add a fallback below.
 
-            **Personal Info:**
-            - Name: Kesanakurthi Surya Vamsi Krishna
-            - Email: suryavamsikrishna2005@gmail.com
-            - Mobile: 8074033030
-            - GitHub: https://github.com/SURYA88977
-            - LinkedIn: https://www.linkedin.com/in/surya-kesanakurthi-b840b8354
+    const askAiButton = document.getElementById('ask-ai-button');
+    const aiQuestionInput = document.getElementById('ai-question-input');
+    const aiResponseOutput = document.getElementById('ai-response-output');
+    const loadingSpinner = document.getElementById('loading-spinner');
 
-            **Education:**
-            - Bachelor of Computer Applications (B.C.A) from Adikavi Nannaya University (Pursuing)
-            - Diploma in Horticulture from Dr YSRHU (Completed)
-            - SSC (Class X) from Bhashyam school, Ramachandrapuram (Completed)
+    // The portfolioContext string instructs the model about the content it can use.
+    const portfolioContext = `
+You are an AI assistant for Kesanakurthi Surya Vamsi Krishna's portfolio website. Your goal is to answer questions about his skills, education, and projects based only on the information provided below. If the question cannot be answered from this information, say you don't have enough information. Do not invent facts.
 
-            **Skills:**
-            - Web Development (HTML5, CSS)
-            - Vibe coding with Cursor, Replit, GitHub Copilot
-            - Beginner in prompt engineering, efficiently using AI tools like ChatGPT, Gemini, and Claude for learning, coding, and content creation.
-            - Python for beginners
-            - Soft Skills: Quick Learner, Good Communication
+Personal Info:
+- Name: Kesanakurthi Surya Vamsi Krishna
+- Email: suryavamsikrishna2005@gmail.com
+- Mobile: 8074033030
+- GitHub: https://github.com/SURYA88977
+- LinkedIn: https://www.linkedin.com/in/surya-kesanakurthi-b840b8354
 
-            **Projects:**
-            1.  **SolarSense Hackathon - Gen1 Software Solutions:** Participated in the Solar System Hackathon focused on innovative energy-based web solutions.
-            2.  **Restaurant Ordering Systems:** Developed a basic web-based restaurant ordering system.
+Education:
+- Bachelor of Computer Applications (B.C.A) from Adikavi Nannaya University (Pursuing)
+- Diploma in Horticulture from Dr YSRHU (Completed)
+- SSC (Class X) from Bhashyam school, Ramachandrapuram (Completed)
 
-            **Certificates:**
-            1.  Web Development Internship Certificate – Amaravathi Software Innovations, June 2025
-            2.  Python course for beginners in Scaler Topics
+Skills:
+- Web Development (HTML5, CSS)
+- Vibe coding with Cursor, Replit, GitHub Copilot
+- Beginner in prompt engineering; uses ChatGPT, Gemini, Claude
+- Python (Beginner)
+- Soft Skills: Quick Learner, Good Communication
 
-            Based on this information, answer the user's question clearly and concisely.
-        `;
+Projects:
+1. SolarSense Hackathon - Gen1 Software Solutions
+2. Restaurant Ordering Systems
 
-        askAiButton.addEventListener('click', async () => {
-            const userQuestion = aiQuestionInput.value.trim();
-            if (!userQuestion) {
-                aiResponseOutput.textContent = "Please enter a question to ask the AI assistant.";
-                return;
+Certificates:
+1. Web Development Internship Certificate – Amaravathi Software Innovations, June 2025
+2. Python course for beginners in Scaler Topics
+
+Answer the user's question concisely based on the above information.
+`.trim();
+
+    // Add a lightweight local fallback "AI" if no API key provided (keeps UI usable offline)
+    // If you have a real API key, set it in the apiKey variable and the code below will call Gemini.
+    const apiKey = ""; // <-- PUT YOUR API KEY HERE (if you have one)
+
+    async function localFallbackResponse(question){
+      // minimal deterministic fallback using portfolioContext to avoid hallucination:
+      const q = question.toLowerCase();
+      if(q.includes('skills') || q.includes('what are surya') || q.includes('technical')){
+        return `Surya's skills (from the portfolio): Web Development (HTML5, CSS), Python (beginner), AI prompt engineering basics, and experience with tools like Cursor, Replit, and GitHub Copilot. Soft skills: Quick Learner and Good Communication.`;
+      }
+      if(q.includes('education') || q.includes('b.c.a') || q.includes('university')){
+        return `Education (from the portfolio): Bachelor of Computer Applications (B.C.A) at Adikavi Nannaya University (Pursuing); Diploma in Horticulture from Dr YSRHU (Completed); SSC at Bhashyam School, Ramachandrapuram.`;
+      }
+      if(q.includes('solar') || q.includes('hackathon') || q.includes('solarsense')){
+        return `Project (from the portfolio): SolarSense Hackathon - Gen1 Software Solutions: participated in a Solar System Hackathon focused on energy-based web solutions.`;
+      }
+      // default fallback
+      return `I don't have enough specific information to fully answer that from the portfolio. Please ask something about Surya's skills, education, or projects listed on the site.`;
+    }
+
+    askAiButton?.addEventListener('click', async () => {
+      const userQuestion = aiQuestionInput.value.trim();
+      if(!userQuestion){
+        aiResponseOutput.textContent = "Please enter a question to ask the AI assistant.";
+        return;
+      }
+
+      // clear and show loading
+      aiResponseOutput.textContent = "";
+      loadingSpinner.classList.remove('hidden');
+      askAiButton.disabled = true;
+
+      // if apiKey is empty, use fallback
+      if(!apiKey){
+        try{
+          const fallback = await localFallbackResponse(userQuestion);
+          aiResponseOutput.textContent = fallback;
+        } catch(e){
+          aiResponseOutput.textContent = "An error occurred in the local assistant.";
+          console.error(e);
+        } finally {
+          loadingSpinner.classList.add('hidden');
+          askAiButton.disabled = false;
+        }
+        return;
+      }
+
+      // Build Gemini payload (same format as your original)
+      const prompt = portfolioContext + "\n\nUser's Question: " + userQuestion;
+      const chatHistory = [{ role: "user", parts: [{ text: prompt }] }];
+      const payload = { contents: chatHistory };
+
+      const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-05-20:generateContent?key=${apiKey}`;
+
+      let retries = 0;
+      const maxRetries = 3;
+      const initialDelay = 1000;
+
+      while(retries < maxRetries){
+        try{
+          const response = await fetch(apiUrl, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(payload)
+          });
+
+          if(!response.ok){
+            if(response.status === 429){
+              const delay = initialDelay * Math.pow(2, retries);
+              console.warn(`Rate limit, retrying in ${delay}ms`);
+              await new Promise(res => setTimeout(res, delay));
+              retries++;
+              continue;
             }
+            throw new Error(`HTTP error! status: ${response.status}`);
+          }
 
-            aiResponseOutput.textContent = ""; // Clear previous response
-            loadingSpinner.classList.remove('hidden'); // Show loading spinner
-            askAiButton.disabled = true; // Disable button during loading
+          const result = await response.json();
 
-            const prompt = portfolioContext + "\n\nUser's Question: " + userQuestion;
+          if(result.candidates && result.candidates.length > 0 &&
+             result.candidates[0].content && result.candidates[0].content.parts &&
+             result.candidates[0].content.parts.length > 0){
+            const text = result.candidates[0].content.parts[0].text;
+            aiResponseOutput.textContent = text;
+          } else {
+            aiResponseOutput.textContent = "Sorry, I couldn't generate a response. Try again or rephrase.";
+          }
+          break; // success
+        } catch(err){
+          console.error('Error calling Gemini API:', err);
+          aiResponseOutput.textContent = "An error occurred fetching the AI response. Please try again later.";
+          break;
+        } finally {
+          loadingSpinner.classList.add('hidden');
+          askAiButton.disabled = false;
+        }
+      } // retry loop
 
-            let chatHistory = [];
-            chatHistory.push({ role: "user", parts: [{ text: prompt }] });
+      if(retries === maxRetries){
+        aiResponseOutput.textContent = "Failed after multiple retries. Please try again later.";
+      }
+    });
 
-            const payload = { contents: chatHistory };
-            const apiKey = ""; // Canvas will automatically provide this at runtime
-            const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-05-20:generateContent?key=${apiKey}`;
-
-            let retries = 0;
-            const maxRetries = 3;
-            const initialDelay = 1000; // 1 second
-
-            while (retries < maxRetries) {
-                try {
-                    const response = await fetch(apiUrl, {
-                        method: 'POST',
-                        headers: { 'Content-Type': 'application/json' },
-                        body: JSON.stringify(payload)
-                    });
-
-                    if (!response.ok) {
-                        if (response.status === 429) { // Too Many Requests
-                            const delay = initialDelay * Math.pow(2, retries);
-                            console.warn(`Rate limit hit. Retrying in ${delay / 1000} seconds...`);
-                            await new Promise(res => setTimeout(res, delay));
-                            retries++;
-                            continue;
-                        }
-                        throw new Error(`HTTP error! status: ${response.status}`);
-                    }
-
-                    const result = await response.json();
-
-                    if (result.candidates && result.candidates.length > 0 &&
-                        result.candidates[0].content && result.candidates[0].content.parts &&
-                        result.candidates[0].content.parts.length > 0) {
-                        const text = result.candidates[0].content.parts[0].text;
-                        aiResponseOutput.textContent = text;
-                    } else {
-                        aiResponseOutput.textContent = "Sorry, I couldn't generate a response. Please try again or rephrase your question.";
-                    }
-                    break; // Exit loop on success
-                } catch (error) {
-                    console.error('Error calling Gemini API:', error);
-                    aiResponseOutput.textContent = "An error occurred while fetching the AI response. Please try again.";
-                    break; // Exit loop on error
-                } finally {
-                    loadingSpinner.classList.add('hidden'); // Hide loading spinner
-                    askAiButton.disabled = false; // Enable button
-                }
-                }
-            if (retries === maxRetries) {
-                aiResponseOutput.textContent = "Failed to get a response after multiple retries. Please try again later.";
-            }
-        });
-    </script>
+  </script>
 </body>
 </html>
