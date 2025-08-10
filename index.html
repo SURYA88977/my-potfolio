@@ -3,146 +3,168 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Kesanakurthi Surya Vamsi Krishna - Portfolio</title>
+  <title>Kesanakurthi Surya Vamsi Krishna — Portfolio</title>
 
-  <!-- Tailwind CDN -->
+  <!-- Optional: Tailwind CDN for utility classes (still works standalone) -->
   <script src="https://cdn.tailwindcss.com"></script>
 
   <!-- Inter font -->
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
 
-  <!-- Font Awesome -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha512-Fo3rlrZj/k7ujTTXRN7p2GPvAaZb2f0n6K2k2Gm4vO8nQk84e0z4bqF6x2h4aQv4uOQ6h7qfXh8s6R9YjYfQw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <!-- Font Awesome icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-p6O3JX5m4z2w6w+f8z3c6FQGx1CqQ3zR/4u1o6VQ1c3H0zYd7wuP0f4X5W9g7kXk+gZ4jv7s9y3qk6x3Q2b3xg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
   <style>
-    /* Base */
     :root{
-      --bg-1: #141830; /* dark */
-      --bg-2: #555770; /* medium */
-      --accent: #416330; /* green accent */
-      --card: #1f223b; /* deep card bg */
-      --muted: #cbd5e1; /* light text */
+      /* Palette: deep navy -> slate -> indigo -> teal */
+      --bg-grad-1: #0f1724; /* very dark navy */
+      --bg-grad-2: #1e293b; /* slate */
+      --bg-grad-3: #4f46e5; /* indigo */
+      --bg-grad-4: #06b6d4; /* teal/bright */
+      --card: rgba(255,255,255,0.03);
+      --muted: #cbd5e1;
       --muted-2: #94a3b8;
-    }
-    html { scroll-behavior: smooth; font-family: 'Inter', sans-serif; }
-    body { margin:0; background:var(--bg-1); color:var(--muted); -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale; }
-
-    .section-padding { padding: 4rem 1rem; }
-    @media(min-width:768px){ .section-padding{ padding:6rem 2rem; } }
-    @media(min-width:1024px){ .section-padding{ padding:8rem 4rem; } }
-
-    /* Gradient text */
-    .text-gradient {
-      background: linear-gradient(90deg, var(--bg-1), var(--bg-2), var(--accent));
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
+      --accent-text: #ffffff;
+      --glass: rgba(255,255,255,0.04);
+      --success: #10b981;
     }
 
-    /* Card */
+    /* Base */
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: 'Inter', system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+      color: var(--muted);
+      background: linear-gradient(135deg, var(--bg-grad-1) 0%, var(--bg-grad-2) 40%, var(--bg-grad-3) 70%, var(--bg-grad-4) 100%);
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      min-height: 100vh;
+      line-height: 1.5;
+    }
+
+    .container { max-width: 1100px; margin: 0 auto; padding: 0 1rem; }
+
+    /* Spacing helper */
+    .section { padding: 5rem 0; }
+    @media(min-width:768px){ .section { padding: 6.5rem 0; } }
+    @media(min-width:1200px){ .section { padding: 8rem 0; } }
+
+    /* Header / Nav */
+    header { position: sticky; top: 0; z-index: 60; backdrop-filter: blur(6px); background: linear-gradient(180deg, rgba(7,10,20,0.45), rgba(7,10,20,0.35)); border-bottom: 1px solid rgba(255,255,255,0.03); }
+    .nav { display:flex; align-items:center; justify-content:space-between; gap:1rem; padding: 1rem 0; }
+    .brand { color: white; font-weight:700; letter-spacing:0.4px; text-decoration:none; display:inline-flex; align-items:center; gap:.6rem; }
+    .nav-links { display:flex; gap:.4rem; align-items:center; }
+    .nav-links a { color: var(--muted); text-decoration:none; padding:.5rem .7rem; border-radius:8px; font-weight:500; transition: all .18s ease; }
+    .nav-links a:hover { color: white; background: rgba(255,255,255,0.03); transform: translateY(-3px); }
+
+    .mobile-toggle { display:none; background:transparent; border:0; color:var(--muted); font-size:1.25rem; }
+
+    @media(max-width:768px){
+      .nav-links { display:none; }
+      .mobile-toggle { display:inline-flex; align-items:center; gap:.5rem; }
+    }
+
+    /* Hero */
+    .hero { min-height: 78vh; display:flex; align-items:center; justify-content:center; text-align:center; position:relative; }
+    .hero-card { width:100%; max-width:920px; padding:2.5rem; border-radius:18px; background: linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.02)); box-shadow: 0 10px 40px rgba(2,6,23,0.6); border: 1px solid rgba(255,255,255,0.04); }
+    .greeting { font-size:1.1rem; color: var(--muted-2); margin-bottom: .25rem; }
+    .name { font-size:2.25rem; line-height:1.02; margin:0; color: white; font-weight:800; }
+    .name .grad { background: linear-gradient(90deg, var(--bg-grad-3), var(--bg-grad-4)); -webkit-background-clip:text; -webkit-text-fill-color:transparent; display:inline-block; }
+    .subtitle { color: var(--muted); margin-top:.6rem; margin-bottom:1.25rem; font-size:1.05rem; }
+
+    .cta-row { display:flex; gap:.8rem; justify-content:center; flex-wrap:wrap; margin-top: .9rem; }
+    .btn-primary {
+      display:inline-flex; align-items:center; gap:.6rem;
+      padding:.6rem 1rem; border-radius:999px; border: 1px solid rgba(255,255,255,0.06);
+      background: linear-gradient(90deg, rgba(79,70,229,0.95), rgba(6,182,212,0.95));
+      color:white; font-weight:600; text-decoration:none; transition: transform .18s ease, box-shadow .18s ease;
+      box-shadow: 0 8px 28px rgba(6,182,212,0.12);
+    }
+    .btn-primary:hover { transform: translateY(-3px) scale(1.02); box-shadow: 0 18px 40px rgba(6,182,212,0.15); }
+
+    .ghost { background:transparent; border:1px solid rgba(255,255,255,0.06); color:var(--muted); padding:.55rem .9rem; border-radius:10px; text-decoration:none; font-weight:600; }
+
+    /* Sections: cards */
+    .grid { display:grid; gap:1.25rem; }
+    .grid-2 { grid-template-columns: 1fr; }
+    @media(min-width:768px){ .grid-2 { grid-template-columns: repeat(2, 1fr); } }
+    @media(min-width:1100px){ .grid-3 { grid-template-columns: repeat(3, 1fr); } }
+
     .card {
       background: var(--card);
-      border-radius: 12px;
-      padding: 1.5rem;
-      box-shadow: 0 6px 18px rgba(0,0,0,0.35);
-      transition: transform .28s ease, box-shadow .28s ease;
+      border-radius:12px;
+      padding:1.25rem;
+      border:1px solid rgba(255,255,255,0.03);
+      transition: transform .18s ease, box-shadow .18s ease;
     }
-    .card:hover { transform: translateY(-6px); box-shadow: 0 18px 30px rgba(0,0,0,0.45); }
+    .card:hover { transform: translateY(-6px); box-shadow: 0 20px 40px rgba(2,6,23,0.5); }
 
-    /* Primary button (no @apply to avoid Tailwind build issues) */
-    .btn-primary {
-      display:inline-flex;
-      align-items:center;
-      gap:0.6rem;
-      padding: .65rem 1.25rem;
-      background: var(--accent);
-      color: #fff;
-      font-weight:600;
-      border-radius:999px;
-      border:2px solid var(--bg-2);
-      box-shadow: 0 8px 20px rgba(65,99,48,0.08);
-      transition: transform .18s ease, background .18s ease, color .18s ease;
-      text-decoration:none;
-    }
-    .btn-primary:hover{ transform: translateY(-3px) scale(1.02); background: var(--bg-2); color:#fff; }
+    .card h3 { margin:0 0 .5rem 0; color:white; font-size:1.15rem; }
+    .muted { color: var(--muted-2); font-size:.98rem; }
 
-    /* Nav links */
-    .nav-link, .mobile-link {
-      color: #d1d5db;
-      padding: .5rem .75rem;
-      border-radius: .5rem;
-      text-decoration: none;
-      display:inline-block;
-      transition: background .18s ease, color .18s ease, transform .18s ease;
-    }
-    .nav-link:hover, .mobile-link:hover { background: rgba(255,255,255,0.02); color: var(--accent); transform: translateY(-2px); }
+    /* education timeline */
+    .timeline { position:relative; padding-left:1.25rem; border-left: 3px solid rgba(255,255,255,0.03); }
+    .timeline-item { position:relative; margin-bottom:1.5rem; padding-left:1.25rem; }
+    .timeline-dot { position:absolute; left:-1.75rem; top:0.5rem; width:34px; height:34px; border-radius:50%; background: linear-gradient(90deg,var(--bg-grad-3),var(--bg-grad-4)); display:flex; align-items:center; justify-content:center; color:white; font-size:0.95rem; box-shadow: 0 8px 20px rgba(79,70,229,0.14); }
 
-    /* Helper accents */
-    .text-blue-accent { color: var(--accent); }
-    .text-green-accent { color: var(--bg-2); }
-    .text-yellow-accent { color: var(--bg-2); }
-    .text-red-accent { color: #ef4444; }
+    /* AI assistant */
+    .ai-box textarea { width:100%; min-height:110px; resize:vertical; border-radius:10px; padding: .9rem; border:1px solid rgba(255,255,255,0.04); background: rgba(255,255,255,0.02); color:var(--muted); }
+    .ai-box .response { margin-top:.75rem; padding: .85rem; border-radius:10px; background: rgba(255,255,255,0.02); border:1px solid rgba(255,255,255,0.03); min-height:120px; color:var(--muted); overflow:auto; }
 
-    /* Loading spinner */
-    .loading-spinner {
-      border: 4px solid rgba(255,255,255,0.18);
-      border-top: 4px solid var(--accent);
-      border-radius: 50%;
-      width: 22px; height: 22px;
-      animation: spin 900ms linear infinite;
-    }
-    @keyframes spin { from { transform: rotate(0); } to { transform: rotate(360deg); } }
+    .loading { display:inline-block; width:20px; height:20px; border-radius:50%; border:3px solid rgba(255,255,255,0.12); border-top-color: white; animation: spin .9s linear infinite; vertical-align:middle; }
+    @keyframes spin { to { transform: rotate(360deg); } }
 
-    /* Hero card */
-    .hero-card { background: rgba(0,0,0,0.6); border-radius: 18px; padding: 2.25rem; }
+    /* footer */
+    footer { padding:2.2rem 0; text-align:center; color:var(--muted-2); border-top:1px solid rgba(255,255,255,0.02); }
 
-    /* Hexagon image (as original had) */
-    .hexagon-image {
-      clip-path: polygon(50% 0, 90% 25%, 90% 75%, 50% 100%, 10% 75%, 10% 25%);
-      transition: transform .25s ease, box-shadow .25s ease;
-      box-shadow: 0 0 20px rgba(65,99,48,0.6), 0 0 40px rgba(85,87,112,0.4);
-    }
-    .hexagon-image:hover{ transform:scale(1.03); box-shadow: 0 0 30px rgba(65,99,48,0.95), 0 0 60px rgba(85,87,112,0.7); }
+    /* small tweaks */
+    a { color:inherit; }
+    .link-primary { color: #fff; text-decoration:underline; text-underline-offset:6px; }
+    .socials a { color:var(--muted); margin-right:.8rem; font-size:1.4rem; display:inline-block; transition: transform .18s ease, color .18s ease; }
+    .socials a:hover { transform: translateY(-4px); color: white; }
 
-    /* small screens tweaks */
-    @media (max-width:420px){
-      .hero-card { padding:1.25rem; }
-      h1 { font-size:1.7rem; }
+    /* mobile menu panel */
+    .mobile-panel { position: fixed; inset:0; background: linear-gradient(180deg, rgba(2,6,23,0.9), rgba(2,6,23,0.95)); z-index:80; display:none; align-items:center; justify-content:center; flex-direction:column; gap:1.2rem; padding:2rem; }
+    .mobile-panel a { font-size:1.25rem; color:var(--muted); }
+
+    @media(max-width:768px){
+      .mobile-panel { display:flex; }
+      .mobile-panel.hidden { display:none; }
     }
 
-    /* focus outlines for accessibility */
-    a:focus, button:focus, textarea:focus, input:focus { outline: 3px solid rgba(81, 173, 123, 0.12); outline-offset: 3px; }
+    /* accessibility focus */
+    a:focus, button:focus, textarea:focus { outline: 3px solid rgba(79,70,229,0.14); outline-offset:3px; }
   </style>
 </head>
-
-<body class="antialiased">
+<body>
 
   <!-- NAV -->
-  <header class="bg-[color:var(--bg-1)] sticky top-0 z-50 shadow-lg">
-    <nav class="container mx-auto px-4 py-4 flex justify-between items-center">
-      <a href="#home" class="text-2xl font-bold text-white hover:text-green-accent">SURYA KESANAKURTHI</a>
+  <header>
+    <div class="container nav">
+      <a href="#home" class="brand" aria-label="Surya Kesanakurthi homepage">
+        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" aria-hidden><rect width="24" height="24" rx="6" fill="url(#g)"></rect><defs><linearGradient id="g" x1="0" x2="1"><stop offset="0" stop-color="#4f46e5"/><stop offset="1" stop-color="#06b6d4"/></linearGradient></defs></svg>
+        <span>SURYA KESANAKURTHI</span>
+      </a>
 
-      <div class="hidden md:flex space-x-2">
-        <a href="#about" class="nav-link">About</a>
-        <a href="#skills" class="nav-link">Skills</a>
-        <a href="#education" class="nav-link">Education</a>
-        <a href="#projects" class="nav-link">Projects</a>
-        <a href="#certificates" class="nav-link">Certificates</a>
-        <a href="#ai-assistant" class="nav-link">AI Assistant</a>
-        <a href="#contact" class="nav-link">Contact</a>
-      </div>
+      <nav class="nav-links" aria-label="Main navigation">
+        <a href="#about">About</a>
+        <a href="#skills">Skills</a>
+        <a href="#education">Education</a>
+        <a href="#projects">Projects</a>
+        <a href="#certificates">Certificates</a>
+        <a href="#ai-assistant">AI Assistant</a>
+        <a href="#contact">Contact</a>
+      </nav>
 
-      <button id="mobile-menu-button" class="md:hidden text-gray-300 hover:text-[#416330] focus:outline-none" aria-label="Open menu">
-        <i class="fas fa-bars text-2xl"></i>
+      <button class="mobile-toggle" id="mobile-open" aria-haspopup="true" aria-controls="mobile-menu" aria-expanded="false">
+        <i class="fa-solid fa-bars"></i>
       </button>
-    </nav>
+    </div>
   </header>
 
-  <!-- MOBILE MENU -->
-  <div id="mobile-menu" class="hidden md:hidden fixed inset-0 bg-[color:var(--bg-1)] bg-opacity-95 z-40 flex flex-col items-center justify-center space-y-8 text-2xl">
-    <button id="close-mobile-menu" class="absolute top-4 right-4 text-gray-300 hover:text-[#416330]" aria-label="Close menu">
-      <i class="fas fa-times text-3xl"></i>
-    </button>
+  <!-- Mobile menu panel -->
+  <div id="mobile-menu" class="mobile-panel hidden" role="dialog" aria-modal="true" aria-hidden="true">
+    <button id="mobile-close" aria-label="Close menu" style="background:transparent;border:0;color:var(--muted);font-size:1.6rem;position:absolute;top:18px;right:18px;"><i class="fa-solid fa-xmark"></i></button>
     <a href="#about" class="mobile-link">About</a>
     <a href="#skills" class="mobile-link">Skills</a>
     <a href="#education" class="mobile-link">Education</a>
@@ -155,57 +177,60 @@
   <main>
 
     <!-- HERO -->
-    <section id="home" class="section-padding min-h-screen flex items-center justify-center text-center bg-cover bg-center bg-no-repeat relative" style="background-image:url('https://via.placeholder.com/1920x1080');">
-      <div class="absolute inset-0 bg-black opacity-60 z-10"></div>
+    <section id="home" class="hero">
+      <div class="container">
+        <div class="hero-card">
+          <div class="greeting">Hello — I'm</div>
+          <h1 class="name">Kesanakurthi <span class="grad">Surya Vamsi Krishna</span></h1>
+          <p class="subtitle">Aspiring Web Developer & AI Enthusiast — building accessible, performant, and beautiful web experiences.</p>
 
-      <div class="relative z-20 flex flex-col items-center justify-center w-full max-w-6xl mx-auto p-6 md:p-10 lg:p-16">
-        <div class="hero-card text-center">
-          <h1 class="text-4xl md:text-6xl font-extrabold text-white leading-tight mb-4">
-            Hi, I'm <span class="text-gradient">Kesanakurthi Surya Vamsi Krishna</span>
-          </h1>
-          <p class="text-lg md:text-xl text-gray-300 mb-8">Aspiring Web Developer & AI Enthusiast</p>
-          <a href="#projects" class="btn-primary">View My Work <i class="fas fa-arrow-right ml-2"></i></a>
+          <div class="cta-row">
+            <a class="btn-primary" href="#projects" title="View projects">View my work <i class="fa-solid fa-arrow-right" style="opacity:.9"></i></a>
+            <a class="ghost" href="#contact" title="Contact">Get in touch</a>
+          </div>
         </div>
       </div>
     </section>
 
     <!-- ABOUT -->
-    <section id="about" class="section-padding bg-[color:var(--card)] text-center">
-      <div class="container mx-auto max-w-3xl">
-        <h2 class="text-3xl md:text-4xl font-bold text-gradient mb-6">About Me</h2>
-        <p class="text-lg text-gray-300 leading-relaxed mb-6">
-          I am a dedicated Bachelor of Computer Applications (B.C.A) student with a profound passion for web development. My journey in technology is driven by a curiosity for creating intuitive and dynamic digital experiences.
-        </p>
-
-        <p class="text-lg text-gray-300 leading-relaxed">
-          I'm a beginner in prompt engineering, efficiently leveraging AI tools like ChatGPT, Gemini, and Claude for learning, coding, and content creation. My soft skills, including being a <span class="font-semibold text-white">Quick Learner</span> and possessing <span class="font-semibold text-white">Good Communication</span>, enable me to adapt swiftly to new challenges and collaborate effectively in team environments. I am constantly seeking opportunities to expand my knowledge and apply innovative solutions.
-        </p>
+    <section id="about" class="section">
+      <div class="container">
+        <div style="max-width:900px;margin:0 auto;text-align:center;">
+          <h2 class="name" style="font-size:1.6rem;margin-bottom:.4rem;color:white;">About Me</h2>
+          <p class="muted" style="margin-bottom:1rem;">
+            I am a dedicated Bachelor of Computer Applications (B.C.A) student with a passion for web development and applied AI. I enjoy creating intuitive, accessible web interfaces and learning new tools and techniques.
+          </p>
+          <p class="muted">
+            I'm beginning in prompt engineering and use tools like ChatGPT, Gemini, and Claude for learning and coding. I combine technical curiosity with strong soft skills — <strong style="color:white;">Quick Learner</strong> and <strong style="color:white;">Good Communication</strong>.
+          </p>
+        </div>
       </div>
     </section>
 
     <!-- SKILLS -->
-    <section id="skills" class="section-padding bg-[color:var(--bg-1)]">
-      <div class="container mx-auto">
-        <h2 class="text-3xl md:text-4xl font-bold text-gradient text-center mb-10">My Skills</h2>
+    <section id="skills" class="section">
+      <div class="container">
+        <h2 style="color:white;font-size:1.4rem;margin-bottom:1rem;text-align:center;" class="text-gradient">My Skills</h2>
 
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div class="grid grid-2">
           <div class="card">
-            <h3 class="text-2xl font-semibold text-white mb-5 flex items-center"><i class="fas fa-code mr-3 text-blue-accent"></i> Technical Skills</h3>
-            <ul class="space-y-4 text-lg text-gray-300">
-              <li class="flex items-center"><i class="fab fa-html5 mr-3 text-orange-500"></i> HTML5</li>
-              <li class="flex items-center"><i class="fab fa-css3-alt mr-3 text-blue-500"></i> CSS</li>
-              <li class="flex items-center"><i class="fab fa-python mr-3 text-yellow-400"></i> Python (Beginner)</li>
-              <li class="flex items-center"><i class="fas fa-globe mr-3 text-green-accent"></i> Web Development (General)</li>
-              <li class="flex items-center"><i class="fas fa-terminal mr-3 text-gray-400"></i> Vibe coding with Cursor, Replit, GitHub Copilot</li>
-              <li class="flex items-center"><i class="fas fa-robot mr-3 text-purple-400"></i> Beginner in Prompt Engineering (ChatGPT, Gemini, Claude)</li>
+            <h3>Technical Skills</h3>
+            <p class="muted">HTML5 · CSS · JavaScript · Basic Python</p>
+            <ul class="muted" style="margin-top:.6rem;list-style:none;padding-left:0;">
+              <li style="margin-bottom:.45rem;"><i class="fa-brands fa-html5" style="color:#f97316;margin-right:.6rem;"></i>HTML5</li>
+              <li style="margin-bottom:.45rem;"><i class="fa-brands fa-css3-alt" style="color:#3b82f6;margin-right:.6rem;"></i>CSS</li>
+              <li style="margin-bottom:.45rem;"><i class="fa-brands fa-python" style="color:#ffd166;margin-right:.6rem;"></i>Python (Beginner)</li>
+              <li style="margin-bottom:.45rem;"><i class="fa-solid fa-terminal" style="color:#94a3b8;margin-right:.6rem;"></i>Cursor · Replit · GitHub Copilot</li>
+              <li><i class="fa-solid fa-robot" style="color:#a78bfa;margin-right:.6rem;"></i>Prompt Engineering (beginner)</li>
             </ul>
           </div>
 
           <div class="card">
-            <h3 class="text-2xl font-semibold text-white mb-5 flex items-center"><i class="fas fa-users mr-3 text-green-accent"></i> Soft Skills</h3>
-            <ul class="space-y-4 text-lg text-gray-300">
-              <li class="flex items-center"><i class="fas fa-brain mr-3 text-cyan-400"></i> Quick Learner</li>
-              <li class="flex items-center"><i class="fas fa-comments mr-3 text-pink-400"></i> Good Communication</li>
+            <h3>Soft Skills</h3>
+            <p class="muted">Teamwork · Communication · Adaptability</p>
+            <ul class="muted" style="margin-top:.6rem;list-style:none;padding-left:0;">
+              <li style="margin-bottom:.45rem;"><i class="fa-solid fa-brain" style="color:#38bdf8;margin-right:.6rem;"></i>Quick Learner</li>
+              <li><i class="fa-solid fa-comments" style="color:#fb7185;margin-right:.6rem;"></i>Good Communication</li>
             </ul>
           </div>
         </div>
@@ -213,121 +238,108 @@
     </section>
 
     <!-- EDUCATION -->
-    <section id="education" class="section-padding bg-[color:var(--card)] text-center">
-      <div class="container mx-auto max-w-4xl">
-        <h2 class="text-3xl md:text-4xl font-bold text-gradient mb-10">Education</h2>
+    <section id="education" class="section" aria-labelledby="education-heading">
+      <div class="container">
+        <h2 style="color:white;font-size:1.4rem;margin-bottom:1rem;text-align:center;" id="education-heading" class="text-gradient">Education</h2>
 
-        <div class="relative pl-8">
-          <div class="mb-8 relative card">
-            <div class="absolute -left-12 top-0 mt-2 w-10 h-10 bg-[color:var(--accent)] rounded-full flex items-center justify-center text-white text-sm font-bold"><i class="fas fa-graduation-cap"></i></div>
-            <h3 class="text-2xl font-semibold text-white mb-2">Bachelor of Computer Applications (B.C.A)</h3>
-            <p class="text-lg text-gray-300">Adikavi Nannaya University</p>
-            <p class="text-sm text-gray-400 mt-1">Pursuing</p>
+        <div class="timeline" style="max-width:820px;margin:0 auto;">
+          <div class="timeline-item">
+            <div class="timeline-dot"><i class="fa-solid fa-graduation-cap"></i></div>
+            <div class="card">
+              <h3>Bachelor of Computer Applications (B.C.A)</h3>
+              <p class="muted">Adikavi Nannaya University — <span style="color:var(--muted);">Pursuing</span></p>
+            </div>
           </div>
 
-          <div class="mb-8 relative card">
-            <div class="absolute -left-12 top-0 mt-2 w-10 h-10 bg-[color:var(--accent)] rounded-full flex items-center justify-center text-white text-sm font-bold"><i class="fas fa-seedling"></i></div>
-            <h3 class="text-2xl font-semibold text-white mb-2">Diploma in Horticulture</h3>
-            <p class="text-lg text-gray-300">Dr YSRHU</p>
-            <p class="text-sm text-gray-400 mt-1">Completed</p>
+          <div class="timeline-item">
+            <div class="timeline-dot"><i class="fa-solid fa-seedling"></i></div>
+            <div class="card">
+              <h3>Diploma in Horticulture</h3>
+              <p class="muted">Dr YSRHU — Completed</p>
+            </div>
           </div>
 
-          <div class="mb-8 relative card">
-            <div class="absolute -left-12 top-0 mt-2 w-10 h-10 bg-[color:var(--accent)] rounded-full flex items-center justify-center text-white text-sm font-bold"><i class="fas fa-school"></i></div>
-            <h3 class="text-2xl font-semibold text-white mb-2">SSC (Class X)</h3>
-            <p class="text-lg text-gray-300">Bhashyam school, Ramachandrapuram</p>
-            <p class="text-sm text-gray-400 mt-1">Completed</p>
+          <div class="timeline-item">
+            <div class="timeline-dot"><i class="fa-solid fa-school"></i></div>
+            <div class="card">
+              <h3>SSC (Class X)</h3>
+              <p class="muted">Bhashyam School, Ramachandrapuram — Completed</p>
+            </div>
           </div>
         </div>
       </div>
     </section>
 
     <!-- PROJECTS -->
-    <section id="projects" class="section-padding bg-[color:var(--bg-1)]">
-      <div class="container mx-auto">
-        <h2 class="text-3xl md:text-4xl font-bold text-gradient text-center mb-10">My Projects</h2>
+    <section id="projects" class="section">
+      <div class="container">
+        <h2 style="color:white;font-size:1.4rem;margin-bottom:1rem;text-align:center;" class="text-gradient">My Projects</h2>
 
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          <div class="card flex flex-col justify-between">
-            <div>
-              <h3 class="text-2xl font-semibold text-white mb-3">SolarSense Hackathon - Gen1 Software Solutions</h3>
-              <p class="text-gray-300 mb-4">Participated in the Solar System Hackathon, focusing on innovative energy-based web solutions. This experience honed my problem-solving skills and ability to work under pressure.</p>
-            </div>
-            <div class="mt-4">
-              <a href="https://github.com/SURYA88977" target="_blank" rel="noopener" class="text-blue-accent hover:text-green-accent font-medium flex items-center">
-                View on GitHub <i class="fab fa-github ml-2"></i>
-              </a>
-            </div>
+        <div class="grid grid-3" style="gap:1.25rem;">
+          <div class="card">
+            <h3>SolarSense Hackathon — Gen1 Software Solutions</h3>
+            <p class="muted" style="margin-top:.5rem;">Participated in the Solar System Hackathon, focusing on energy-based web solutions. Gained experience in rapid prototyping and teamwork.</p>
+            <p style="margin-top:.9rem;"><a class="link-primary" href="https://github.com/SURYA88977" target="_blank" rel="noopener">View on GitHub</a></p>
           </div>
 
-          <div class="card flex flex-col justify-between">
-            <div>
-              <h3 class="text-2xl font-semibold text-white mb-3">Restaurant Ordering Systems</h3>
-              <p class="text-gray-300 mb-4">Developed a basic web-based restaurant ordering system. This project allowed me to apply fundamental HTML and CSS skills to create a user-friendly interface for browsing menus and placing orders.</p>
-            </div>
-            <div class="mt-4">
-              <a href="https://github.com/SURYA88977" target="_blank" rel="noopener" class="text-blue-accent hover:text-green-accent font-medium flex items-center">
-                View on GitHub <i class="fab fa-github ml-2"></i>
-              </a>
-            </div>
+          <div class="card">
+            <h3>Restaurant Ordering Systems</h3>
+            <p class="muted" style="margin-top:.5rem;">Built a basic web-based restaurant ordering interface for menu browsing and order placement using HTML/CSS and vanilla JS concepts.</p>
+            <p style="margin-top:.9rem;"><a class="link-primary" href="https://github.com/SURYA88977" target="_blank" rel="noopener">View on GitHub</a></p>
           </div>
 
-          <!-- add more project cards if needed -->
+          <div class="card">
+            <h3>More Projects</h3>
+            <p class="muted" style="margin-top:.5rem;">Add more project cards here as you build them — small case studies work great for portfolio viewers.</p>
+          </div>
         </div>
       </div>
     </section>
 
     <!-- CERTIFICATES -->
-    <section id="certificates" class="section-padding bg-[color:var(--card)]">
-      <div class="container mx-auto max-w-4xl">
-        <h2 class="text-3xl md:text-4xl font-bold text-gradient text-center mb-10">Certificates & Achievements</h2>
+    <section id="certificates" class="section">
+      <div class="container">
+        <h2 style="color:white;font-size:1.4rem;margin-bottom:1rem;text-align:center;" class="text-gradient">Certificates & Achievements</h2>
 
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-          <div class="card flex items-start">
-            <i class="fas fa-award text-4xl text-yellow-400 mr-4 mt-1"></i>
-            <div>
-              <h3 class="text-xl font-semibold text-white mb-1">Web Development Internship Certificate</h3>
-              <p class="text-gray-300">Amaravathi Software Innovations</p>
-              <p class="text-sm text-gray-400">June 2025</p>
-            </div>
+        <div class="grid grid-2" style="max-width:980px;margin:0 auto;">
+          <div class="card">
+            <i class="fa-solid fa-award" style="color:#facc15;margin-right:.7rem;"></i>
+            <h3 style="display:inline-block;vertical-align:middle;">Web Development Internship Certificate</h3>
+            <p class="muted" style="margin-top:.5rem;">Amaravathi Software Innovations — June 2025</p>
           </div>
 
-          <a href="https://drive.google.com/file/d/1S4Y512Sp47uvpYbc8ozTWvvYXktc8hYN/view?usp=drivesdk" target="_blank" rel="noopener" class="card flex items-start">
-            <i class="fas fa-certificate text-4xl text-blue-accent mr-4 mt-1"></i>
-            <div>
-              <h3 class="text-xl font-semibold text-white mb-1">Python Course for Beginners</h3>
-              <p class="text-gray-300">Scaler Topics</p>
-              <p class="text-sm text-gray-400">Completed</p>
-            </div>
+          <a class="card" href="https://drive.google.com/file/d/1S4Y512Sp47uvpYbc8ozTWvvYXktc8hYN/view?usp=drivesdk" target="_blank" rel="noopener">
+            <i class="fa-solid fa-certificate" style="color:#60a5fa;margin-right:.7rem;"></i>
+            <h3 style="display:inline-block;vertical-align:middle;">Python Course for Beginners</h3>
+            <p class="muted" style="margin-top:.5rem;">Scaler Topics — Completed</p>
           </a>
 
-          <div class="card md:col-span-2 flex items-start">
-            <i class="fas fa-trophy text-4xl text-green-accent mr-4 mt-1"></i>
-            <div>
-              <h3 class="text-xl font-semibold text-white mb-1">Hackathon Participation</h3>
-              <p class="text-gray-300">Participated in SolarSense Hackathon - Gen1 Software Solutions, demonstrating collaborative problem-solving and innovative thinking.</p>
-            </div>
+          <div class="card" style="grid-column: 1 / -1;">
+            <i class="fa-solid fa-trophy" style="color:#34d399;margin-right:.7rem;"></i>
+            <h3 style="display:inline-block;vertical-align:middle;">Hackathon Participation</h3>
+            <p class="muted" style="margin-top:.5rem;">Participated in SolarSense Hackathon — Gen1 Software Solutions.</p>
           </div>
         </div>
       </div>
     </section>
 
     <!-- AI ASSISTANT -->
-    <section id="ai-assistant" class="section-padding bg-[color:var(--bg-1)]">
-      <div class="container mx-auto max-w-3xl">
-        <h2 class="text-3xl md:text-4xl font-bold text-gradient text-center mb-6">Portfolio AI Assistant ✨</h2>
-        <p class="text-lg text-gray-300 text-center mb-6">Ask me anything about Surya's skills, projects, or education!</p>
+    <section id="ai-assistant" class="section" aria-labelledby="ai-heading">
+      <div class="container" style="max-width:760px;margin:0 auto;">
+        <h2 id="ai-heading" style="color:white;font-size:1.4rem;margin-bottom:1rem;text-align:center;" class="text-gradient">Portfolio AI Assistant ✨</h2>
+        <p class="muted" style="text-align:center;margin-bottom:1rem;">Ask about Surya's skills, education, or projects. (Local fallback available — no key needed.)</p>
 
-        <div class="card p-6">
-          <textarea id="ai-question-input" class="w-full p-3 rounded-lg bg-[color:var(--card)] text-gray-200 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[color:var(--accent)] mb-4" rows="4" placeholder="e.g., What are Surya's soft skills? Tell me more about the SolarSense Hackathon."></textarea>
+        <div class="card ai-box">
+          <label for="ai-question-input" class="muted" style="display:block;margin-bottom:.5rem;">Type your question:</label>
+          <textarea id="ai-question-input" placeholder="e.g., What are Surya's soft skills?" aria-label="AI question"></textarea>
 
-          <button id="ask-ai-button" class="btn-primary w-full flex items-center justify-center mb-4">
-            <span>Ask AI</span>
-            <i class="fas fa-magic ml-2"></i>
-            <div id="loading-spinner" class="loading-spinner ml-3 hidden" style="margin-left: .75rem;"></div>
-          </button>
+          <div style="display:flex;gap:.6rem;margin-top:.75rem;align-items:center;">
+            <button id="ask-ai-button" class="btn-primary" title="Ask AI">Ask AI <i class="fa-solid fa-magic" style="opacity:.95"></i></button>
+            <button id="clear-ai-button" class="ghost" title="Clear">Clear</button>
+            <div id="ai-loading" aria-hidden="true" style="display:none;"><span class="loading" aria-hidden="true"></span></div>
+          </div>
 
-          <div id="ai-response-output" class="mt-4 p-4 bg-[color:var(--card)] rounded-lg text-gray-200 min-h-[120px] overflow-auto">
+          <div id="ai-response-output" class="response" aria-live="polite" style="margin-top:.8rem;">
             Your AI-powered answer will appear here.
           </div>
         </div>
@@ -335,31 +347,27 @@
     </section>
 
     <!-- CONTACT -->
-    <section id="contact" class="section-padding bg-[color:var(--card)] text-center">
-      <div class="container mx-auto max-w-2xl">
-        <h2 class="text-3xl md:text-4xl font-bold text-gradient mb-6">Get In Touch</h2>
-        <p class="text-lg text-gray-300 mb-6">I'm always open to new opportunities and collaborations. Feel free to reach out!</p>
+    <section id="contact" class="section">
+      <div class="container" style="max-width:760px;margin:0 auto;text-align:center;">
+        <h2 style="color:white;font-size:1.4rem;margin-bottom:1rem;" class="text-gradient">Get in Touch</h2>
+        <p class="muted" style="margin-bottom:1rem;">I'm open to new opportunities and collaborations. Reach out via email or phone.</p>
 
-        <div class="flex flex-col md:flex-row justify-center items-center space-y-6 md:space-y-0 md:space-x-8">
-          <div class="flex items-center text-lg text-gray-300">
-            <i class="fas fa-envelope text-blue-accent mr-3"></i>
-            <a href="mailto:suryavamsikrishna2005@gmail.com" class="hover:text-white transition">suryavamsikrishna2005@gmail.com</a>
+        <div style="display:flex;flex-direction:column;gap:.5rem;align-items:center;">
+          <div style="display:flex;gap:.6rem;align-items:center;">
+            <i class="fa-solid fa-envelope" style="color:var(--bg-grad-4)"></i>
+            <a href="mailto:suryavamsikrishna2005@gmail.com" class="muted">suryavamsikrishna2005@gmail.com</a>
           </div>
-          <div class="flex items-center text-lg text-gray-300">
-            <i class="fas fa-phone text-blue-accent mr-3"></i>
-            <a href="tel:+918074033030" class="hover:text-white transition">+91 8074033030</a>
+          <div style="display:flex;gap:.6rem;align-items:center;">
+            <i class="fa-solid fa-phone" style="color:var(--bg-grad-3)"></i>
+            <a href="tel:+918074033030" class="muted">+91 8074033030</a>
           </div>
-        </div>
 
-        <div class="mt-8">
-          <h3 class="text-2xl font-semibold text-white mb-4">Connect with me:</h3>
-          <div class="flex justify-center space-x-6 text-3xl">
-            <a href="https://github.com/SURYA88977" target="_blank" rel="noopener" class="text-gray-300 hover:text-blue-accent transition transform hover:scale-110">
-              <i class="fab fa-github"></i>
-            </a>
-            <a href="https://www.linkedin.com/in/surya-kesanakurthi-b840b8354" target="_blank" rel="noopener" class="text-gray-300 hover:text-blue-accent transition transform hover:scale-110">
-              <i class="fab fa-linkedin"></i>
-            </a>
+          <div style="margin-top:1rem;">
+            <h3 style="color:white;margin-bottom:.6rem;">Connect with me</h3>
+            <div class="socials" aria-label="Social links">
+              <a href="https://github.com/SURYA88977" target="_blank" rel="noopener" title="GitHub"><i class="fa-brands fa-github"></i></a>
+              <a href="https://www.linkedin.com/in/surya-kesanakurthi-b840b8354" target="_blank" rel="noopener" title="LinkedIn"><i class="fa-brands fa-linkedin"></i></a>
+            </div>
           </div>
         </div>
       </div>
@@ -367,188 +375,157 @@
 
   </main>
 
-  <!-- FOOTER -->
-  <footer class="bg-[color:var(--bg-1)] py-8 text-center text-gray-400 text-sm">
-    <div class="container mx-auto px-4">
+  <footer>
+    <div class="container">
       <p>&copy; 2025 Kesanakurthi Surya Vamsi Krishna. All rights reserved.</p>
-      <p class="mt-2">Designed with <i class="fas fa-heart text-red-accent"></i> using HTML, Tailwind CSS, and JavaScript.</p>
+      <p style="margin-top:.45rem;">Designed with <span style="color:#ef4444;">❤</span> • HTML, CSS, JS</p>
     </div>
   </footer>
 
-  <!-- SCRIPTS -->
+  <!-- Scripts -->
   <script>
-    // Smooth scrolling for same-page anchors
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-      anchor.addEventListener('click', function (e) {
-        // only handle anchors that actually refer to elements on page
-        const target = document.querySelector(this.getAttribute('href'));
-        if(target){
+    // Smooth scroll only when target exists
+    document.querySelectorAll('a[href^="#"]').forEach(a=>{
+      a.addEventListener('click', (e) => {
+        const href = a.getAttribute('href');
+        if(!href || href === '#') return;
+        const el = document.querySelector(href);
+        if(el){
           e.preventDefault();
-          target.scrollIntoView({ behavior: 'smooth' });
+          el.scrollIntoView({ behavior: 'smooth', block: 'start' });
         }
       });
     });
 
-    // Mobile menu toggle
-    const mobileMenuButton = document.getElementById('mobile-menu-button');
-    const closeMobileMenuButton = document.getElementById('close-mobile-menu');
+    // Mobile menu open/close
+    const mobileOpen = document.getElementById('mobile-open');
+    const mobileClose = document.getElementById('mobile-close');
     const mobileMenu = document.getElementById('mobile-menu');
 
-    function toggleMobileMenu(){
-      mobileMenu.classList.toggle('hidden');
-      mobileMenu.classList.toggle('flex');
+    if(mobileOpen){
+      mobileOpen.addEventListener('click', () => {
+        mobileMenu.classList.remove('hidden');
+        mobileOpen.setAttribute('aria-expanded','true');
+        mobileMenu.setAttribute('aria-hidden','false');
+      });
     }
+    if(mobileClose){
+      mobileClose.addEventListener('click', () => {
+        mobileMenu.classList.add('hidden');
+        mobileOpen.setAttribute('aria-expanded','false');
+        mobileMenu.setAttribute('aria-hidden','true');
+      });
+    }
+    // close on mobile link click
+    document.querySelectorAll('.mobile-link').forEach(link => link.addEventListener('click', () => {
+      mobileMenu.classList.add('hidden');
+      mobileOpen.setAttribute('aria-expanded','false');
+    }));
 
-    if(mobileMenuButton) mobileMenuButton.addEventListener('click', toggleMobileMenu);
-    if(closeMobileMenuButton) closeMobileMenuButton.addEventListener('click', toggleMobileMenu);
-    document.querySelectorAll('.mobile-link').forEach(link => link.addEventListener('click', toggleMobileMenu));
-
-    // --- AI Assistant (Gemini) integration ---
-    // NOTE: This uses the same approach as your original file. You MUST set apiKey to
-    // a valid Google Generative Language API key in order for remote requests to work.
-    // If you don't have a key or want a local demo, I'll add a fallback below.
+    /* -------- AI assistant logic (local fallback + optional API) --------
+       - No key required: local deterministic fallback will answer basic portfolio questions.
+       - If you have an API key and want to call a remote model, put it in `apiKey` and uncomment the fetch code.
+       - Keep in mind: do NOT expose secret keys in client-side code for production.
+    --------------------------------------------------------------------- */
 
     const askAiButton = document.getElementById('ask-ai-button');
-    const aiQuestionInput = document.getElementById('ai-question-input');
-    const aiResponseOutput = document.getElementById('ai-response-output');
-    const loadingSpinner = document.getElementById('loading-spinner');
+    const clearAiButton = document.getElementById('clear-ai-button');
+    const aiInput = document.getElementById('ai-question-input');
+    const aiOutput = document.getElementById('ai-response-output');
+    const aiLoading = document.getElementById('ai-loading');
 
-    // The portfolioContext string instructs the model about the content it can use.
     const portfolioContext = `
-You are an AI assistant for Kesanakurthi Surya Vamsi Krishna's portfolio website. Your goal is to answer questions about his skills, education, and projects based only on the information provided below. If the question cannot be answered from this information, say you don't have enough information. Do not invent facts.
-
-Personal Info:
-- Name: Kesanakurthi Surya Vamsi Krishna
-- Email: suryavamsikrishna2005@gmail.com
-- Mobile: 8074033030
-- GitHub: https://github.com/SURYA88977
-- LinkedIn: https://www.linkedin.com/in/surya-kesanakurthi-b840b8354
-
-Education:
-- Bachelor of Computer Applications (B.C.A) from Adikavi Nannaya University (Pursuing)
-- Diploma in Horticulture from Dr YSRHU (Completed)
-- SSC (Class X) from Bhashyam school, Ramachandrapuram (Completed)
-
-Skills:
-- Web Development (HTML5, CSS)
-- Vibe coding with Cursor, Replit, GitHub Copilot
-- Beginner in prompt engineering; uses ChatGPT, Gemini, Claude
-- Python (Beginner)
-- Soft Skills: Quick Learner, Good Communication
-
-Projects:
-1. SolarSense Hackathon - Gen1 Software Solutions
-2. Restaurant Ordering Systems
-
-Certificates:
-1. Web Development Internship Certificate – Amaravathi Software Innovations, June 2025
-2. Python course for beginners in Scaler Topics
-
-Answer the user's question concisely based on the above information.
+Name: Kesanakurthi Surya Vamsi Krishna
+Email: suryavamsikrishna2005@gmail.com
+Phone: +91 8074033030
+Education: B.C.A (Adikavi Nannaya University - Pursuing), Diploma in Horticulture (Dr YSRHU), SSC (Bhashyam School)
+Skills: Web Development (HTML/CSS/JS), Python (Beginner), AI prompt basics, Cursor/Replit/GitHub Copilot
+Projects: SolarSense Hackathon - Gen1 Software Solutions; Restaurant Ordering Systems
+Certificates: Web Dev Internship (Amaravathi Software Innovations), Python Course (Scaler Topics)
 `.trim();
 
-    // Add a lightweight local fallback "AI" if no API key provided (keeps UI usable offline)
-    // If you have a real API key, set it in the apiKey variable and the code below will call Gemini.
-    const apiKey = ""; // <-- PUT YOUR API KEY HERE (if you have one)
+    // optional: place an API key if you have a server / proxy approach. Keep empty for local fallback.
+    const apiKey = ""; // <-- put API key here ONLY if using a server-side secure proxy. Do not embed secrets in public client JS.
 
-    async function localFallbackResponse(question){
-      // minimal deterministic fallback using portfolioContext to avoid hallucination:
+    // deterministic local fallback to avoid hallucinations
+    function localAssistant(question){
+      if(!question || question.trim().length === 0) return "Please ask a question about Surya's skills, education, or projects.";
       const q = question.toLowerCase();
-      if(q.includes('skills') || q.includes('what are surya') || q.includes('technical')){
-        return `Surya's skills (from the portfolio): Web Development (HTML5, CSS), Python (beginner), AI prompt engineering basics, and experience with tools like Cursor, Replit, and GitHub Copilot. Soft skills: Quick Learner and Good Communication.`;
+      if(q.includes('skill') || q.includes('skills')) {
+        return "Surya's skills (from the portfolio): Web Development (HTML, CSS, JS), Python (beginner), prompt-engineering basics, and tools like Cursor, Replit, GitHub Copilot. Soft skills: Quick Learner and Good Communication.";
       }
-      if(q.includes('education') || q.includes('b.c.a') || q.includes('university')){
-        return `Education (from the portfolio): Bachelor of Computer Applications (B.C.A) at Adikavi Nannaya University (Pursuing); Diploma in Horticulture from Dr YSRHU (Completed); SSC at Bhashyam School, Ramachandrapuram.`;
+      if(q.includes('education') || q.includes('b.c.a') || q.includes('university')) {
+        return "Education (from the portfolio): Bachelor of Computer Applications (B.C.A) — Adikavi Nannaya University (Pursuing); Diploma in Horticulture — Dr YSRHU (Completed); SSC at Bhashyam School, Ramachandrapuram (Completed).";
       }
-      if(q.includes('solar') || q.includes('hackathon') || q.includes('solarsense')){
-        return `Project (from the portfolio): SolarSense Hackathon - Gen1 Software Solutions: participated in a Solar System Hackathon focused on energy-based web solutions.`;
+      if(q.includes('solar') || q.includes('hackathon')) {
+        return "SolarSense Hackathon (Gen1 Software Solutions): participated in a Solar System Hackathon focused on energy-based web solutions and rapid prototyping.";
       }
-      // default fallback
-      return `I don't have enough specific information to fully answer that from the portfolio. Please ask something about Surya's skills, education, or projects listed on the site.`;
+      if(q.includes('projects')) {
+        return "Listed projects: SolarSense Hackathon and Restaurant Ordering Systems (basic web ordering interface).";
+      }
+      return "I don't have enough portfolio information to fully answer that. Try asking about skills, education, or the named projects.";
+    }
+
+    // UI helpers
+    function setLoading(on){
+      if(on){
+        aiLoading.style.display = 'inline-block';
+        askAiButton.setAttribute('disabled','true');
+      } else {
+        aiLoading.style.display = 'none';
+        askAiButton.removeAttribute('disabled');
+      }
     }
 
     askAiButton?.addEventListener('click', async () => {
-      const userQuestion = aiQuestionInput.value.trim();
-      if(!userQuestion){
-        aiResponseOutput.textContent = "Please enter a question to ask the AI assistant.";
-        return;
-      }
+      const q = (aiInput.value || "").trim();
+      if(!q){ aiOutput.textContent = "Please enter a question."; return; }
 
-      // clear and show loading
-      aiResponseOutput.textContent = "";
-      loadingSpinner.classList.remove('hidden');
-      askAiButton.disabled = true;
+      aiOutput.textContent = "";
+      setLoading(true);
 
-      // if apiKey is empty, use fallback
+      // if no apiKey, use local fallback
       if(!apiKey){
-        try{
-          const fallback = await localFallbackResponse(userQuestion);
-          aiResponseOutput.textContent = fallback;
-        } catch(e){
-          aiResponseOutput.textContent = "An error occurred in the local assistant.";
-          console.error(e);
-        } finally {
-          loadingSpinner.classList.add('hidden');
-          askAiButton.disabled = false;
-        }
+        // small delay to simulate thinking
+        await new Promise(r => setTimeout(r, 500));
+        aiOutput.textContent = localAssistant(q);
+        setLoading(false);
         return;
       }
 
-      // Build Gemini payload (same format as your original)
-      const prompt = portfolioContext + "\n\nUser's Question: " + userQuestion;
-      const chatHistory = [{ role: "user", parts: [{ text: prompt }] }];
-      const payload = { contents: chatHistory };
+      /* If you DO have a secure server-side proxy to call an LLM, call it here.
+         Example (DO NOT call models directly from browser with a secret key):
+         const response = await fetch('/api/generate', { method:'POST', body: JSON.stringify({prompt: portfolioContext + "\\n\\n" + q})});
+         const json = await response.json();
+         aiOutput.textContent = json.text || "No result.";
+      */
 
-      const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-05-20:generateContent?key=${apiKey}`;
+      // fallback end
+    });
 
-      let retries = 0;
-      const maxRetries = 3;
-      const initialDelay = 1000;
+    clearAiButton?.addEventListener('click', () => {
+      aiInput.value = '';
+      aiOutput.textContent = 'Your AI-powered answer will appear here.';
+    });
 
-      while(retries < maxRetries){
-        try{
-          const response = await fetch(apiUrl, {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify(payload)
-          });
-
-          if(!response.ok){
-            if(response.status === 429){
-              const delay = initialDelay * Math.pow(2, retries);
-              console.warn(`Rate limit, retrying in ${delay}ms`);
-              await new Promise(res => setTimeout(res, delay));
-              retries++;
-              continue;
-            }
-            throw new Error(`HTTP error! status: ${response.status}`);
-          }
-
-          const result = await response.json();
-
-          if(result.candidates && result.candidates.length > 0 &&
-             result.candidates[0].content && result.candidates[0].content.parts &&
-             result.candidates[0].content.parts.length > 0){
-            const text = result.candidates[0].content.parts[0].text;
-            aiResponseOutput.textContent = text;
-          } else {
-            aiResponseOutput.textContent = "Sorry, I couldn't generate a response. Try again or rephrase.";
-          }
-          break; // success
-        } catch(err){
-          console.error('Error calling Gemini API:', err);
-          aiResponseOutput.textContent = "An error occurred fetching the AI response. Please try again later.";
-          break;
-        } finally {
-          loadingSpinner.classList.add('hidden');
-          askAiButton.disabled = false;
-        }
-      } // retry loop
-
-      if(retries === maxRetries){
-        aiResponseOutput.textContent = "Failed after multiple retries. Please try again later.";
+    // keyboard: Enter = submit for convenience (Ctrl/Cmd+Enter for newline)
+    aiInput?.addEventListener('keydown', (e) => {
+      if(e.key === 'Enter' && (e.ctrlKey || e.metaKey)){
+        // insert newline
+        return;
+      }
+      if(e.key === 'Enter' && !e.shiftKey){
+        e.preventDefault();
+        askAiButton.click();
       }
     });
+
+    // small accessibility: focus-visible handling (some browsers)
+    (function(){
+      document.body.addEventListener('keydown', function(e){
+        if(e.key === 'Tab') document.documentElement.classList.add('user-is-tabbing');
+      });
+    })();
 
   </script>
 </body>
