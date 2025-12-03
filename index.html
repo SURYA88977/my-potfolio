@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -293,4 +292,173 @@
                         <i class="fas fa-certificate text-4xl text-blue-accent mr-4 mt-1"></i>
                         <div>
                             <h3 class="text-xl font-semibold text-white mb-1">Python Course for Beginners</h3>
-                            <p 
+                            <p class="text-gray-300">Scaler Topics</p>
+                            <p class="text-sm text-gray-400">Completed</p>
+                        </div>
+                    </a>
+                    <!-- Achievement: Hackathon Participation -->
+                    <div class="card md:col-span-2 flex items-start">
+                        <i class="fas fa-trophy text-4xl text-green-accent mr-4 mt-1"></i>
+                        <div>
+                            <h3 class="text-xl font-semibold text-white mb-1">Hackathon Participation</h3>
+                            <p class="text-gray-300">Participated in SolarSense Hackathon - Gen1 Software Solutions, demonstrating collaborative problem-solving and innovative thinking.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Portfolio AI Assistant Section -->
+        <section id="ai-assistant" class="section-padding bg-[#015668]">
+            <div class="container mx-auto max-w-3xl">
+                <h2 class="text-4xl font-bold text-gradient text-center mb-8">Portfolio AI Assistant ✨</h2>
+                <p class="text-lg text-gray-300 text-center mb-8">
+                    Powered by Google Gemini 2.0 Flash. Ask about my skills, or generate a custom pitch!
+                </p>
+                
+                <div class="grid grid-cols-1 gap-8">
+                    <!-- Chat Interface -->
+                    <div class="card p-6">
+                        <h3 class="text-xl font-semibold text-white mb-4"><i class="fas fa-robot text-blue-accent mr-2"></i> Chat with My Portfolio</h3>
+                        <textarea id="ai-question-input" class="w-full p-3 rounded-lg bg-[#1f3438] border border-[#263F44] text-gray-200 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-accent focus:border-transparent mb-4 transition-all" rows="3" placeholder="e.g., What frameworks does Surya know?"></textarea>
+                        
+                        <button id="ask-ai-button" class="btn-primary w-full flex items-center justify-center">
+                            <span id="btn-text">Ask Gemini</span> <i id="btn-icon" class="fas fa-sparkles ml-2"></i>
+                            <div id="loading-spinner" class="loading-spinner ml-3 hidden"></div>
+                        </button>
+                        
+                        <div id="ai-response-output" class="mt-6 p-4 bg-[#1f3438] border border-[#263F44] rounded-lg text-gray-200 min-h-[50px] overflow-auto hidden prose prose-invert max-w-none">
+                            <!-- Response will be injected here -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="section-padding bg-[#263F44] text-center">
+            <div class="container mx-auto max-w-2xl">
+                <h2 class="text-4xl font-bold text-gradient mb-8">Get In Touch</h2>
+                <p class="text-lg text-gray-300 mb-8">
+                    I'm always open to new opportunities and collaborations. Feel free to reach out!
+                </p>
+                <div class="flex flex-col md:flex-row justify-center items-center space-y-6 md:space-y-0 md:space-x-8">
+                    <a href="mailto:example@email.com" class="flex items-center text-lg text-gray-300 hover:text-green-accent transition duration-300">
+                        <i class="fas fa-envelope text-2xl mr-3 text-blue-accent"></i>
+                        <span>Email Me</span>
+                    </a>
+                    <a href="https://github.com/SURYA88977" target="_blank" class="flex items-center text-lg text-gray-300 hover:text-green-accent transition duration-300">
+                        <i class="fab fa-github text-2xl mr-3 text-blue-accent"></i>
+                        <span>GitHub</span>
+                    </a>
+                    <a href="#" class="flex items-center text-lg text-gray-300 hover:text-green-accent transition duration-300">
+                        <i class="fab fa-linkedin text-2xl mr-3 text-blue-accent"></i>
+                        <span>LinkedIn</span>
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-[#004250] py-6 text-center text-gray-400">
+        <p>&copy; 2024 Kesanakurthi Surya Vamsi Krishna. All rights reserved.</p>
+        <p class="text-sm mt-2">Built with HTML, Tailwind CSS & AI ✨</p>
+    </footer>
+
+    <!-- Script for UI Logic (Mobile Menu) -->
+    <script>
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobile-menu');
+            if (menu.classList.contains('hidden')) {
+                menu.classList.remove('hidden');
+                menu.classList.add('flex');
+                document.body.style.overflow = 'hidden';
+            } else {
+                menu.classList.add('hidden');
+                menu.classList.remove('flex');
+                document.body.style.overflow = 'auto';
+            }
+        }
+    </script>
+
+    <!-- Script for Gemini AI Logic (Module) -->
+    <script type="module">
+        import { GoogleGenerativeAI } from "https://esm.run/@google/generative-ai";
+
+        // Initialize Gemini
+        const apiKey = ""; // API Key injected by environment
+        const genAI = new GoogleGenerativeAI(apiKey);
+        const model = genAI.getGenerativeModel({ 
+            model: "gemini-2.5-flash-preview-09-2025",
+            systemInstruction: `You are the AI Assistant for the portfolio website of Kesanakurthi Surya Vamsi Krishna.
+            
+            Here is Surya's Context:
+            - **Role**: Aspiring Web Developer & AI Enthusiast.
+            - **Education**: 
+                1. BCA (Bachelor of Computer Applications) at Adikavi Nannaya University (Pursuing).
+                2. Diploma in Horticulture from Dr YSRHU (Completed).
+                3. SSC from Bhashyam school (Completed).
+            - **Technical Skills**: HTML5, CSS, Python (Beginner), Web Development, "Vibe coding" with Cursor/Replit/Copilot.
+            - **AI Skills**: Beginner in Prompt Engineering (ChatGPT, Gemini, Claude).
+            - **Soft Skills**: Quick Learner, Good Communication.
+            - **Projects**:
+                1. "SolarSense Hackathon": Innovative energy-based web solution.
+                2. "Restaurant Ordering System": Basic web app with HTML/CSS.
+            - **Certificates**: Web Dev Internship (Amaravathi Software Innovations), Python Course (Scaler Topics).
+            - **Contact**: GitHub (SURYA88977).
+
+            Your Goal: Answer visitor questions politely and professionally. If asked to generate a pitch, match Surya's skills to the company's needs. Be concise and enthusiastic.`
+        });
+
+        // --- Chat Feature ---
+        async function handleAIQuery() {
+            const inputField = document.getElementById('ai-question-input');
+            const outputDiv = document.getElementById('ai-response-output');
+            const spinner = document.getElementById('loading-spinner');
+            const btnText = document.getElementById('btn-text');
+            const btnIcon = document.getElementById('btn-icon');
+            
+            const question = inputField.value.trim();
+            if (!question) return;
+
+            // UI Loading
+            spinner.classList.remove('hidden');
+            btnText.innerText = "Thinking...";
+            btnIcon.classList.add('hidden');
+            inputField.disabled = true;
+            outputDiv.classList.add('hidden');
+
+            try {
+                const result = await model.generateContent(question);
+                const response = result.response.text();
+                
+                // Render Markdown-like response
+                outputDiv.innerHTML = `<span class="text-blue-accent font-bold">AI:</span> ${response.replace(/\n/g, '<br>')}`;
+                outputDiv.classList.remove('hidden');
+            } catch (error) {
+                console.error(error);
+                outputDiv.innerHTML = `<span class="text-red-400">Error: Could not reach Gemini API. Please try again.</span>`;
+                outputDiv.classList.remove('hidden');
+            } finally {
+                // Reset UI
+                spinner.classList.add('hidden');
+                btnText.innerText = "Ask Gemini";
+                btnIcon.classList.remove('hidden');
+                inputField.disabled = false;
+                inputField.focus();
+            }
+        }
+
+        // Attach Event Listeners
+        document.getElementById('ask-ai-button').addEventListener('click', handleAIQuery);
+        document.getElementById('ai-question-input').addEventListener('keypress', (e) => {
+            if (e.key === 'Enter' && !e.shiftKey) {
+                e.preventDefault();
+                handleAIQuery();
+            }
+        });
+
+    </script>
+</body>
+</html>
