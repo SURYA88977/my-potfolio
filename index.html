@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,6 +10,7 @@
     <!-- Google Fonts - Inter -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <!-- Font Awesome for Icons -->
+     <link rel="icon" type="image/x-icon" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/svgs/solid/user.svg">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
         /* Custom CSS for smooth scrolling and font */
@@ -51,7 +53,7 @@
         }
         .btn-primary {
             /* Using arbitrary values for precise color match */
-            @apply inline-block px-6 py-3 bg-[#FFD369] text-[#015668] font-semibold border-2 border-[#FFF1CF] rounded-full shadow-lg hover:bg-[#FFF1CF] hover:text-[#015668] transition duration-300 ease-in-out transform hover:scale-105;
+            @apply inline-block px-6 py-3 bg-[#FFF1CF] text-[#015668] font-semibold border-2 border-[#FFD369] rounded-full shadow-lg hover:bg-[#FFD369] hover:text-[#015668] transition duration-300 ease-in-out transform hover:scale-105;
         }
         .loading-spinner {
             border: 4px solid rgba(255, 255, 255, 0.3);
@@ -92,57 +94,66 @@
     <header class="bg-[#015668] bg-opacity-90 sticky top-0 z-50 shadow-lg">
         <nav class="container mx-auto px-4 py-4 flex justify-between items-center">
             <a href="#home" class="text-2xl font-bold text-white hover:text-green-accent transition duration-300 ease-in-out">SURYA KESANAKURTHI</a>
-            <div class="hidden md:flex space-x-2">
-                <a href="#about" class="text-gray-300 hover:bg-[#263F44] hover:text-[#FFD369] px-3 py-2 rounded-md transition duration-300 ease-in-out">About</a>
-                <a href="#skills" class="text-gray-300 hover:bg-[#263F44] hover:text-[#FFD369] px-3 py-2 rounded-md transition duration-300 ease-in-out">Skills</a>
-                <a href="#education" class="text-gray-300 hover:bg-[#263F44] hover:text-[#FFD369] px-3 py-2 rounded-md transition duration-300 ease-in-out">Education</a>
-                <a href="#projects" class="text-gray-300 hover:bg-[#263F44] hover:text-[#FFD369] px-3 py-2 rounded-md transition duration-300 ease-in-out">Projects</a>
-                <a href="#certificates" class="text-gray-300 hover:bg-[#263F44] hover:text-[#FFD369] px-3 py-2 rounded-md transition duration-300 ease-in-out">Certificates</a>
-                <a href="#ai-assistant" class="text-gray-300 hover:bg-[#263F44] hover:text-[#FFD369] px-3 py-2 rounded-md transition duration-300 ease-in-out">AI Assistant</a>
-                <a href="#contact" class="text-gray-300 hover:bg-[#263F44] hover:text-[#FFD369] px-3 py-2 rounded-md transition duration-300 ease-in-out">Contact</a>
+            <div class="hidden md:flex space-x-8">
+                <a href="#about" class="text-gray-300 hover:text-green-accent transition duration-300 ease-in-out">About</a>
+                <a href="#skills" class="text-gray-300 hover:text-green-accent transition duration-300 ease-in-out">Skills</a>
+                <a href="#education" class="text-gray-300 hover:text-green-accent transition duration-300 ease-in-out">Education</a>
+                <a href="#projects" class="text-gray-300 hover:text-green-accent transition duration-300 ease-in-out">Projects</a>
+                <a href="#certificates" class="text-gray-300 hover:text-green-accent transition duration-300 ease-in-out">Certificates</a>
+                <a href="#ai-assistant" class="text-gray-300 hover:text-green-accent transition duration-300 ease-in-out">AI Assistant</a>
+                <a href="#contact" class="text-gray-300 hover:text-green-accent transition duration-300 ease-in-out">Contact</a>
             </div>
             <!-- Mobile Menu Button -->
-            <button id="mobile-menu-button" class="md:hidden text-gray-300 hover:text-[#FFD369] focus:outline-none transition duration-300 ease-in-out">
+            <button id="mobile-menu-button" class="md:hidden text-gray-300 hover:text-green-accent focus:outline-none transition duration-300 ease-in-out">
                 <i class="fas fa-bars text-2xl"></i>
             </button>
         </nav>
         <!-- Mobile Menu Overlay -->
         <div id="mobile-menu" class="hidden md:hidden fixed inset-0 bg-[#015668] bg-opacity-95 z-40 flex flex-col items-center justify-center space-y-8 text-2xl">
-            <button id="close-mobile-menu" class="absolute top-4 right-4 text-gray-300 hover:text-[#FFD369] focus:outline-none transition duration-300 ease-in-out">
+            <button id="close-mobile-menu" class="absolute top-4 right-4 text-gray-300 hover:text-green-accent focus:outline-none transition duration-300 ease-in-out">
                 <i class="fas fa-times text-3xl"></i>
             </button>
-            <a href="#about" class="text-gray-300 hover:bg-[#263F44] hover:text-[#FFD369] px-3 py-2 rounded-md transition duration-300 ease-in-out" onclick="toggleMobileMenu()">About</a>
-            <a href="#skills" class="text-gray-300 hover:bg-[#263F44] hover:text-[#FFD369] px-3 py-2 rounded-md transition duration-300 ease-in-out" onclick="toggleMobileMenu()">Skills</a>
-            <a href="#education" class="text-gray-300 hover:bg-[#263F44] hover:text-[#FFD369] px-3 py-2 rounded-md transition duration-300 ease-in-out" onclick="toggleMobileMenu()">Education</a>
-            <a href="#projects" class="text-gray-300 hover:bg-[#263F44] hover:text-[#FFD369] px-3 py-2 rounded-md transition duration-300 ease-in-out" onclick="toggleMobileMenu()">Projects</a>
-            <a href="#certificates" class="text-gray-300 hover:bg-[#263F44] hover:text-[#FFD369] px-3 py-2 rounded-md transition duration-300 ease-in-out" onclick="toggleMobileMenu()">Certificates</a>
-            <a href="#ai-assistant" class="text-gray-300 hover:bg-[#263F44] hover:text-[#FFD369] px-3 py-2 rounded-md transition duration-300 ease-in-out" onclick="toggleMobileMenu()">AI Assistant</a>
-            <a href="#contact" class="text-gray-300 hover:bg-[#263F44] hover:text-[#FFD369] px-3 py-2 rounded-md transition duration-300 ease-in-out" onclick="toggleMobileMenu()">Contact</a>
+            <a href="#about" class="text-gray-300 hover:text-green-accent transition duration-300 ease-in-out" onclick="toggleMobileMenu()">About</a>
+            <a href="#skills" class="text-gray-300 hover:text-green-accent transition duration-300 ease-in-out" onclick="toggleMobileMenu()">Skills</a>
+            <a href="#education" class="text-gray-300 hover:text-green-accent transition duration-300 ease-in-out" onclick="toggleMobileMenu()">Education</a>
+            <a href="#projects" class="text-gray-300 hover:text-green-accent transition duration-300 ease-in-out" onclick="toggleMobileMenu()">Projects</a>
+            <a href="#certificates" class="text-gray-300 hover:text-green-accent transition duration-300 ease-in-out" onclick="toggleMobileMenu()">Certificates</a>
+            <a href="#ai-assistant" class="text-gray-300 hover:text-green-accent transition duration-300 ease-in-out" onclick="toggleMobileMenu()">AI Assistant</a>
+            <a href="#contact" class="text-gray-300 hover:text-green-accent transition duration-300 ease-in-out" onclick="toggleMobileMenu()">Contact</a>
         </div>
     </header>
 
-    <main>
-        <!-- Hero Section -->
-        <section id="home" class="section-padding min-h-screen flex items-center justify-center text-center bg-cover bg-center bg-no-repeat relative" style="background-image: url('http://googleusercontent.com/file_content/1');">
-            <!-- Overlay to make text readable -->
-            <div class="absolute inset-0 bg-black opacity-60 z-10"></div>
+        <main>
+            <!-- Hero Section -->
+            <section id="home" class="section-padding min-h-screen flex items-center justify-center text-center relative overflow-hidden">
+                <!-- Unicorn Studio Background -->
+                <div class="absolute inset-0 z-0">
+                    <div data-us-project="Dx1E6lJtxyRQaQXlAu1d" style="width:100%; height:100%; filter: brightness(1.2) contrast(1.1);"></div>
+                    <script type="text/javascript">!function(){if(!window.UnicornStudio){window.UnicornStudio={isInitialized:!1};var i=document.createElement("script");i.src="https://cdn.jsdelivr.net/gh/hiunicornstudio/unicornstudio.js@v1.5.2/dist/unicornStudio.umd.js",i.onload=function(){window.UnicornStudio.isInitialized||(UnicornStudio.init(),window.UnicornStudio.isInitialized=!0)},(document.head || document.body).appendChild(i)}}();</script>
+                </div>
+                
+                <!-- Animated Background Overlay -->
+                <div class="absolute inset-0 bg-gradient-to-br from-[#015668]/30 via-[#0a3a45]/20 to-[#263F44]/30 z-10"></div>
+                <div class="absolute top-0 right-0 w-96 h-96 bg-[#FFD369] rounded-full mix-blend-screen opacity-20 blur-2xl animate-pulse z-10"></div>
+                <div class="absolute bottom-0 left-0 w-96 h-96 bg-[#FFF1CF] rounded-full mix-blend-screen opacity-20 blur-2xl animate-pulse z-10"></div>
 
-            <!-- Content Container (now only for text) -->
-            <div class="relative z-20 flex flex-col items-center justify-center w-full max-w-6xl mx-auto p-6 md:p-10 lg:p-16">
-                <!-- Text Content -->
-                <div class="w-full flex flex-col justify-center items-center text-center">
-                    <div class="bg-black bg-opacity-70 p-10 md:p-16 rounded-xl shadow-2xl">
-                        <h1 class="text-5xl md:text-7xl font-extrabold text-white leading-tight mb-4">
-                            Hi, I'm <span class="text-gradient">Kesanakurthi Surya Vamsi Krishna</span>
-                        </h1>
-                        <p class="text-xl md:text-2xl text-gray-300 mb-8">
-                            Aspiring Web Developer & AI Enthusiast
-                        </p>
-                        <a href="#projects" class="btn-primary">View My Work <i class="fas fa-arrow-right ml-2"></i></a>
+                <!-- Content Container -->
+                <div class="relative z-20 flex flex-col items-center justify-center w-full max-w-6xl mx-auto p-6 md:p-10 lg:p-16">
+                    <!-- Text Content -->
+                    <div class="w-full flex flex-col justify-center items-center text-center">
+                        <div class="backdrop-blur-lg bg-white/20 border-2 border-white/40 p-10 md:p-16 rounded-3xl shadow-2xl hover:bg-white/25 hover:border-white/60 transition duration-500 hover:shadow-[0_0_40px_rgba(255,211,105,0.4)]">
+                            <h1 class="text-5xl md:text-7xl font-extrabold text-white leading-tight mb-4">
+                                Hi, I'm <span class="text-gradient">Kesanakurthi Surya Vamsi Krishna</span>
+                            </h1>
+                            <p class="text-xl md:text-2xl text-gray-200 mb-8">
+                                Aspiring Web Developer & AI Enthusiast
+                            </p>
+                            <a href="#projects" class="btn-primary">View My Work <i class="fas fa-arrow-right ml-2"></i></a>
+                        </div>
                     </div>
                 </div>
-            </div>
-        </section>
+            </section>
+
 
         <!-- About Me Section -->
         <section id="about" class="section-padding bg-[#263F44] text-center">
@@ -178,7 +189,7 @@
                     <div class="card">
                         <h3 class="text-2xl font-semibold text-white mb-6 flex items-center"><i class="fas fa-users mr-3 text-green-accent"></i> Soft Skills</h3>
                         <ul class="space-y-4 text-lg text-gray-300">
-                            <li class="flex items-center"><i class="fas fa-brain mr-3 text-cyan-400"></i> Quick Learner</li>
+                            <li class="flex items-center"><i class="fas fa-brain mr-3 text-cyan-400"></i> Quick Learer</li>
                             <li class="flex items-center"><i class="fas fa-comments mr-3 text-pink-400"></i> Good Communication</li>
                         </ul>
                     </div>
@@ -326,173 +337,4 @@
                 </p>
                 <div class="flex flex-col md:flex-row justify-center items-center space-y-6 md:space-y-0 md:space-x-8">
                     <div class="flex items-center text-lg text-gray-300">
-                        <i class="fas fa-envelope text-blue-accent mr-3"></i>
-                        <a href="mailto:suryavamsikrishna2005@gmail.com" class="hover:text-white transition duration-300">suryavamsikrishna2005@gmail.com</a>
-                    </div>
-                    <div class="flex items-center text-lg text-gray-300">
-                        <i class="fas fa-phone text-blue-accent mr-3"></i>
-                        <a href="tel:+918074033030" class="hover:text-white transition duration-300">+91 8074033030</a>
-                    </div>
-                </div>
-                <div class="mt-10">
-                    <h3 class="text-2xl font-semibold text-white mb-4">Connect with me:</h3>
-                    <div class="flex justify-center space-x-6 text-4xl">
-                        <a href="https://github.com/SURYA88977" target="_blank" class="text-gray-300 hover:text-blue-accent transition duration-300 transform hover:scale-110">
-                            <i class="fab fa-github"></i>
-                        </a>
-                        <a href="https://www.linkedin.com/in/surya-kesanakurthi-b840b8354?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_ap" target="_blank" class="text-gray-300 hover:text-blue-accent transition duration-300 transform hover:scale-110">
-                            <i class="fab fa-linkedin"></i>
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </section>
-    </main>
-
-    <!-- Footer -->
-    <footer class="bg-[#015668] py-8 text-center text-gray-400 text-sm">
-        <div class="container mx-auto px-4">
-            <p>&copy; 2025 Kesanakurthi Surya Vamsi Krishna. All rights reserved.</p>
-            <p class="mt-2">Designed with <i class="fas fa-heart text-red-accent"></i> using HTML, Tailwind CSS, and JavaScript.</p>
-        </div>
-    </footer>
-
-    <script>
-        // JavaScript for smooth scrolling
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
-                });
-            });
-        });
-
-        // JavaScript for mobile menu toggle
-        const mobileMenuButton = document.getElementById('mobile-menu-button');
-        const closeMobileMenuButton = document.getElementById('close-mobile-menu');
-        const mobileMenu = document.getElementById('mobile-menu');
-
-        function toggleMobileMenu() {
-            mobileMenu.classList.toggle('hidden');
-            mobileMenu.classList.toggle('flex');
-        }
-
-        mobileMenuButton.addEventListener('click', toggleMobileMenu);
-        closeMobileMenuButton.addEventListener('click', toggleMobileMenu);
-
-        // Close mobile menu when a link is clicked inside it
-        mobileMenu.querySelectorAll('a').forEach(link => {
-            link.addEventListener('click', toggleMobileMenu);
-        });
-
-        // --- Gemini API Integration ---
-        const askAiButton = document.getElementById('ask-ai-button');
-        const aiQuestionInput = document.getElementById('ai-question-input');
-        const aiResponseOutput = document.getElementById('ai-response-output');
-        const loadingSpinner = document.getElementById('loading-spinner');
-
-        // Contextual information for the AI to answer questions about the portfolio
-        const portfolioContext = `
-            You are an AI assistant for Kesanakurthi Surya Vamsi Krishna's portfolio website. Your goal is to answer questions about his skills, education, and projects based *only* on the following information. If a question cannot be answered from this information, state that you don't have enough information. Do not make up information.
-
-            **Personal Info:**
-            - Name: Kesanakurthi Surya Vamsi Krishna
-            - Email: suryavamsikrishna2005@gmail.com
-            - Mobile: 8074033030
-            - GitHub: https://github.com/SURYA88977
-            - LinkedIn: https://www.linkedin.com/in/surya-kesanakurthi-b840b8354
-
-            **Education:**
-            - Bachelor of Computer Applications (B.C.A) from Adikavi Nannaya University (Pursuing)
-            - Diploma in Horticulture from Dr YSRHU (Completed)
-            - SSC (Class X) from Bhashyam school, Ramachandrapuram (Completed)
-
-            **Skills:**
-            - Web Development (HTML5, CSS)
-            - Vibe coding with Cursor, Replit, GitHub Copilot
-            - Beginner in prompt engineering, efficiently using AI tools like ChatGPT, Gemini, and Claude for learning, coding, and content creation.
-            - Python for beginners
-            - Soft Skills: Quick Learner, Good Communication
-
-            **Projects:**
-            1.  **SolarSense Hackathon - Gen1 Software Solutions:** Participated in the Solar System Hackathon focused on innovative energy-based web solutions.
-            2.  **Restaurant Ordering Systems:** Developed a basic web-based restaurant ordering system.
-
-            **Certificates:**
-            1.  Web Development Internship Certificate – Amaravathi Software Innovations, June 2025
-            2.  Python course for beginners in Scaler Topics
-
-            Based on this information, answer the user's question clearly and concisely.
-        `;
-
-        askAiButton.addEventListener('click', async () => {
-            const userQuestion = aiQuestionInput.value.trim();
-            if (!userQuestion) {
-                aiResponseOutput.textContent = "Please enter a question to ask the AI assistant.";
-                return;
-            }
-
-            aiResponseOutput.textContent = ""; // Clear previous response
-            loadingSpinner.classList.remove('hidden'); // Show loading spinner
-            askAiButton.disabled = true; // Disable button during loading
-
-            const prompt = portfolioContext + "\n\nUser's Question: " + userQuestion;
-
-            let chatHistory = [];
-            chatHistory.push({ role: "user", parts: [{ text: prompt }] });
-
-            const payload = { contents: chatHistory };
-            const apiKey = ""; // Canvas will automatically provide this at runtime
-            const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-05-20:generateContent?key=${apiKey}`;
-
-            let retries = 0;
-            const maxRetries = 3;
-            const initialDelay = 1000; // 1 second
-
-            while (retries < maxRetries) {
-                try {
-                    const response = await fetch(apiUrl, {
-                        method: 'POST',
-                        headers: { 'Content-Type': 'application/json' },
-                        body: JSON.stringify(payload)
-                    });
-
-                    if (!response.ok) {
-                        if (response.status === 429) { // Too Many Requests
-                            const delay = initialDelay * Math.pow(2, retries);
-                            console.warn(`Rate limit hit. Retrying in ${delay / 1000} seconds...`);
-                            await new Promise(res => setTimeout(res, delay));
-                            retries++;
-                            continue;
-                        }
-                        throw new Error(`HTTP error! status: ${response.status}`);
-                    }
-
-                    const result = await response.json();
-
-                    if (result.candidates && result.candidates.length > 0 &&
-                        result.candidates[0].content && result.candidates[0].content.parts &&
-                        result.candidates[0].content.parts.length > 0) {
-                        const text = result.candidates[0].content.parts[0].text;
-                        aiResponseOutput.textContent = text;
-                    } else {
-                        aiResponseOutput.textContent = "Sorry, I couldn't generate a response. Please try again or rephrase your question.";
-                    }
-                    break; // Exit loop on success
-                } catch (error) {
-                    console.error('Error calling Gemini API:', error);
-                    aiResponseOutput.textContent = "An error occurred while fetching the AI response. Please try again.";
-                    break; // Exit loop on error
-                } finally {
-                    loadingSpinner.classList.add('hidden'); // Hide loading spinner
-                    askAiButton.disabled = false; // Enable button
-                }
-                }
-            if (retries === maxRetries) {
-                aiResponseOutput.textContent = "Failed to get a response after multiple retries. Please try again later.";
-            }
-        });
-    </script>
-</body>
-</html>
+                        
